@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Decentralising with Ethereum</title>
+		<meta name="description" content="">
+		<meta name="author" content="Kumar Anirudha">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Decentralising with Ethereum</h1>
+					<h3></h3>
+					<p><a href="http://anirudha.org">Kumar Anirudha</a></p>
+				</section>
+				<section>
+					<h2><a href="https://www.ethereum.org">Ethereum</a></h2>
+					<p class="fragment">
+						An open software platform based on blockchain technology that enables developers to build and deploy decentralised applications.
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Key Concepts</h2>
+						<br>
+						<p><small>Let's skim over some basic ethereum terms and concepts.</small></p>
+					</section>
+					<section>
+						<h2>Blockchain</h2>
+						<p>Open transparent distributed database.</p>
+						<p><img data-src="http://i.imgur.com/EUJYMNn.png" alt="Chain of Blocks" width="auto" height="400rem"></p>
+					</section>
+					<section>
+						<h2>Bitcoin vs Ethereum</h2>
+						<ul>
+							<li>Turing Complete Smart Contracts</li>
+							<li>Swarm</li>
+							<li>Whisper</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Dapps</h2>
+						<p>A Decentralized Application (or 'Dapp') is a piece of software consisting of a user interface (UI) and a decentralized backend; typically making use of a blockchain and smart contracts.</p>
+					</section>
+					<section>
+						<h2>Solidity</h2>
+						<p>Solidity is a contract-oriented, high-level language whose syntax is similar to that of JavaScript and it is designed to target the Ethereum Virtual Machine (EVM).</p>
+						<pre><code data-trim>
+	pragma solidity ^0.4.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function set(uint x) {
+        storedData = x;
+    }
+
+    function get() constant returns (uint) {
+        return storedData;
+    }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Ether (&amp; Gas)</h2>
+						<p class="fragment">Ether is a form of payment made by the clients of the platform to the machines executing the requested operations.</p>
+						<p class="fragment">Gas is the internal pricing for running a transaction or contract in Ethereum.</p>
+						<p class="fragment">Ether used to pay gas = Gas price (that you pick) * Gas used (based on the computation)</p>
+					</section>
+				</section>
+				<section>
+					<h2>Tools</h2>
+					<p class="fragment">Testnet (testrpc)</p>
+					<p class="fragment">web3.js (web3-eth, web3-shh, web3-bzz)</p>
+					<p class="fragment">Truffle</p>
+				</section>
+				<section>
+					<h2>Dapp</h2>
+					<p class="fragment">Decentralized Applications</p>
+					<small class="fragment">
+						<ul>
+							<li class="fragment">The application must be completely open-source, it must operate autonomously, and with no entity controlling the majority of its tokens. The application may adapt its protocol in response to proposed improvements and market feedback but all changes must be decided by consensus of its users.</li>
+							<li class="fragment">The application’s data and records of operation must be cryptographically stored in a public, decentralized blockchain in order to avoid any central points of failure.</li>
+							<li class="fragment">The application must use a cryptographic token (Bitcoin or a token native to its system) which is necessary for access to the application and any contribution of value from (miners / farmers) should be rewarded in the application’s tokens.</li>
+							<li class="fragment">The application must generate tokens according to a standard crytptographic algorithm acting as a proof of the value nodes are contributing to the application (Bitcoin uses the Proof of Work Algorithm).</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h2>Formation of Dapp</h2>
+					<img class="fragment" src="http://i.imgur.com/5sXAz0E.jpg" alt="Outource It">
+				</section>
+				<section>
+					<h2>Formation of Dapp</h2>
+					<p class="fragment">
+						<ol>
+							<li class="fragment">A whitepaper is published describing the Dapp and its features.</li>
+							<li class="fragment">Initial tokens are distributed.</li>
+							<li class="fragment">The ownership stake of the DApp is spread.</li>
+						</ol>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Tokens</h2>
+					</section>
+					<section>
+						<h2>Crowd-sale tokens</h2>
+						<img src="http://i.imgur.com/3we7wrL.jpg" width="auto" height="400rem" title="CrowdSale" />
+					</section>
+					<section>
+						<h2>Developer tokens</h2>
+						<img src="http://i.imgur.com/CpUmmVX.jpg" width="auto" height="400rem" title="Developer" />
+					</section>
+					<section>
+						<h2>Premined tokens</h2>
+						<img src="http://i.imgur.com/nGyiDRk.png" width="auto" height="400rem" title="Premined" />
+					</section>
+					<section>
+						<h2>Minable tokens</h2>
+						<img src="http://i.imgur.com/hwHFGeT.jpg" width="auto" height="400rem" title="Minable" />
+					</section>
+				</section>
+				<section>
+					<h2><a href="#">Demo App</a></h2>
+				</section>
+				<section style="text-align: left;">
+					<center><img class="fragment shrink" width="auto" height="300" data-src="http://i.imgur.com/Vff0Kjb.jpg" alt="The End">
+					<h3 class="fragment highlight-blue">Questions?</h3>
+					<p class="fragment">
+						<small>Kumar Anirudha :</small>
+						<br>
+						Facebook: <a href="https://fb.com/kranirudha">@kranirudha</a><br>
+						Twitter: <a href="https://twitter.com/kranirudha">@kranirudha</a><br>
+						Github: <a href="https://twitter.com/anistark">@anistark</a><br>
+						Mail: <a href="mailto:anirudha@blockchainedindia.com">anirudha@blockchainedindia.com</a> <br>
+					</p>
+					</center>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex',
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
