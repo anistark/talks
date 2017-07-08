@@ -1173,3 +1173,10 @@ body {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+.all-revert {
+  margin: 0 0!important;
+  background: none!important;
+  border: none!important;
+  box-shadow: none!important;
+}
