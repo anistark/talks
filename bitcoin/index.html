@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bitcoin and Blockchain</title>
+
+		<meta name="description" content="Blockchain Landscape">
+		<meta name="author" content="Kumar Anirudha">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section id="home">
+					<h1>Bitcoin and Blockchain</h1>
+					<p>
+						<small><a href="https://anirudha.org">Kumar Anirudha</a></small>
+					</p>
+				</section>
+
+				<section id="what">
+					<h2>What</h2>
+					<p class="fragment">
+						<ul id="fragment">
+							<li class="fragment">Cryptocurrency - Asset / Currency</li>
+							<li class="fragment">Decentralised Network</li>
+							<li class="fragment">Distributed Database / Ledger</li>
+						</ul>
+					</p>
+				</section>
+
+				<section id="why">
+					<h2>Why</h2>
+					<p class="fragment">
+						<ul id="fragment">
+							<li class="fragment">Huge fees for money/asset transfer.</li>
+							<li class="fragment">Delayed oversees transfer in age of globalisation.</li>
+							<li class="fragment">A p2p network all can trust in.</li>
+							<li class="fragment">Not controlled by any government or institution.</li>
+						</ul>
+					</p>
+				</section>
+
+				<section id="bitcoin">
+					<section>
+						<!-- <h2>Bitcoin</h2> -->
+						<img width="100%" height="auto" data-src="https://www.lowyat.net/wp-content/uploads/2013/11/bitcoin_logo_31993.jpg" alt="Bitcoin">
+					</section>
+					<section>
+						<h2>What is Bitcoin?</h2>
+						<p class="fragment">A peer-to-peer electronic cash system.</p>
+						<a class="fragment" href="https://bitcoin.org/bitcoin.pdf" target="_blank"><img width="178" height="auto" data-src="http://www.seaclouds-project.eu/sites/default/files/seaclouds/public/field/image/White_Papers_Icon.png" alt="Bitcoin Whitepaper"></a>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
