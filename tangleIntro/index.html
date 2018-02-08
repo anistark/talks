@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Introduction to Tangle</title>
+		<meta name="description" content="iota, tangle, introduction, blockchain, dlt, distributed, machine, economy, DAG, acyclic">
+		<meta name="author" content="Kumar Anirudha">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/tangle.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="https://buy-iota.info/wp-content/uploads/2017/12/buy-iota.png" alt="IOTA" class="all-revert">
+					<h1>Beyond Blockchain - An Introduction to Tangle</h1>
+					<h3></h3>
+					<p><a href="http://anirudha.org">Kumar Anirudha</a></p>
+				</section>
+				<section>
+					<h2>Overview</h2>
+					<p>
+						<h4>What to expect from this session</h4>
+						<ul>
+							<li>Problems with current world</li>
+							<li>Bitcoin and Blockchain</li>
+							<li>Problems with Blockchain</li>
+							<li>What is Tangle</li>
+							<li>Blockchain vs Tangle</li>
+							<li>Use-cases and Implementations</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<h2>Problem</h2>
+					<p>
+						<ul>
+							<li class="fragment">Huge fees for money/asset transfer.</li>
+							<li class="fragment">Delayed oversees transfer.</li>
+							<li class="fragment">Controlled by any government or Institution.</li>
+							<li class="fragment">Corrupt Humans. No Trust among peers.</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Solution</h2>
+						<p>
+							<h4 class="fragment">Blockchain<h4>
+							<ul>
+								<li class="fragment">Bitcoin for the first time established trust in a trustless system.</li>
+								<li class="fragment">Blockchain paved the way to more distributed data systems.</li>
+								<li class="fragment">Peer to peer networks gave control back to the people who earlier felt at mercy of the big organisations.</li>
+								<li class="fragment">Internet faced a revolution unlike any other.</li>
+								<li class="fragment">Everyone can now be rewarded for every little action they do. Incentives are the new have-to and not can do.</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>A Blockchain World</h2>
+						<p class="fragment">
+							<img data-src="https://d24wuq6o951i2g.cloudfront.net/img/events/id/288/2888341/assets/16d.consensys-logo.png" alt="Consensys" width="auto" height="100rem">
+							<img data-src="https://pbs.twimg.com/profile_images/892660520339337216/Pg_jd6oh.jpg" alt="augur" width="auto" height="100rem">
+							<img data-src="https://steemit-production-imageproxy-thumbnail.s3.amazonaws.com/U5drsgRRWPdeE7vPSXtMLsVeKG6Zcwb_1680x8400" alt="Golem" width="auto" height="100rem">
+							<img data-src="https://downloads.intercomcdn.com/i/o/22929/51dbb4772b12e3dec084d882/wordmark.png" alt="Earn.com" width="auto" height="100rem">
+							<img data-src="https://seeklogo.com/images/S/steemit-logo-C8ECB02BBF-seeklogo.com.png" alt="Steemit" width="auto" height="100rem">
+							<img data-src="https://www.coindesk.com/wp-content/themes/coindesk2/images/footer-logo-square.png" alt="Coindesk" width="auto" height="100rem">
+							<img data-src="https://pbs.twimg.com/profile_images/922892062462226432/9mNS0Jab_400x400.jpg" alt="Cointelegraph" width="auto" height="100rem">
+							<img data-src="https://avatars1.githubusercontent.com/u/13466804?s=200&v=4" alt="OpenChain" width="auto" height="100rem">
+							<img data-src="https://static1.squarespace.com/static/55c672ece4b029ac822d96b7/55dd35e5e4b0bddc4adbf228/57621aba37c5819d1f1d66da/1466047162977/Chain_Square_-01.png" alt="chain.com" width="auto" height="100rem">
+							<img data-src="https://cdn-images-1.medium.com/max/1600/1*7nKbqqVf3-GSulqU-wbKjw.jpeg" alt="Ascribe" width="auto" height="100rem">
+							<img data-src="https://secure.gravatar.com/avatar/8f15873be45b18cd43b6c97e7f51812f.jpg?s=512&r=g&d=mm" alt="Hyperledger" width="auto" height="100rem">
+							<img data-src="https://ih1.redbubble.net/image.395362213.7630/flat,800x800,070,f.jpg" alt="Ethereum" width="auto" height="100rem">
+							<img data-src="https://cdn-images-1.medium.com/max/1600/1*6uFMED1qqO4Qa27RUUJfvw.jpeg" alt="bigchainDb" width="auto" height="100rem">
+							<img data-src="https://cdn.worldvectorlogo.com/logos/ripple-2.svg" alt="Ripple" width="auto" height="100rem">
+							<img data-src="https://www.stellar.org/wp-content/themes/stellar/images/stellar-rocket-300.png" alt="Stellar" width="auto" height="100rem">
+							<img data-src="https://makebitcoingreatagain.files.wordpress.com/2015/11/coinspark_logo.png" alt="Multichain" width="auto" height="100rem">
+							<img data-src="https://blockchainlive.com/wp-content/uploads/sites/10/2017/04/Applied-Blockchain-Logo.png" alt="Applied Blockchain" width="auto" height="100rem">
+							<img data-src="https://pbs.twimg.com/profile_images/940349100297297920/7aglaO4Q_400x400.jpg" alt="Infura" width="auto" height="100rem">
+							<img data-src="https://qtum.org/images/wechat-share.png" alt="Qtum" width="auto" height="100rem">
+							<img data-src="https://brave.com/images/brave_icon_shadow_300px.png" alt="Brave" width="auto" height="100rem">
+							<img data-src="https://www.paxos.com/hs-fs/hubfs/_00_PAXOS/PAXOS-icon.png?t=1513284613258&width=300&name=PAXOS-icon.png" alt="Paxos" width="auto" height="100rem">
+							<img data-src="http://bitcoin2140.com/wp-content/uploads/2017/08/wallets-icons-360x360-ledger@2x.png" alt="Ledger Nano" width="auto" height="100rem">
+							<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Blockstack-stack-rgb.svg/2000px-Blockstack-stack-rgb.svg.png" alt="Blockstack" width="auto" height="100rem">
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Problems with Blockchain</h2>
+						<p>
+							<ul>
+								<li class="fragment">Users vs Network</li>
+								<li class="fragment">Scalability</li>
+								<li class="fragment">Tax/ Miners</li>
+								<li class="fragment">Always Online</li>
+								<li class="fragment">High end hardware requirements</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Solutions in Blockchain</h2>
+						<p>
+							<ul>
+								<li class="fragment">Users vs Network - Solved by various consensus mechanisms</li>
+								<li class="fragment">Scalability - Solved temporarily by lightning network, raiden network, plasma, sharding, etc.</li>
+								<li class="fragment">Tax/ Miners - No solution</li>
+								<li class="fragment">Always Online - No solution</li>
+								<li class="fragment">High end hardware requirements - Light chains solve to some extent if mining is not involved.</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2><a href="https://www.youtube.com/watch?v=ivWqqfzunhI" target="_blank">Tangle</a></h2>
+						<img src="http://untangled.world/wp-content/uploads/2017/10/01-initial-tangle-state-800x291.png" alt="Tangle" class="fragment">
+						<small class="fragment">
+							It is a novel new distributed ledger architecture that is based on a DAG (Directed Acyclic Graph). One might refer to it as a "Blockchain without Blocks and the Chain" (semantically, it's not really a Blockchain).
+							<br />
+							<a href="https://iota.org/IOTA_Whitepaper.pdf" target="_blank">IOTA Whitepaper</a>
+							<br />
+							At its core, the Tangle still has the same underlying principles as a Blockchain: it's still a distributed database, it's still a P2P Network and it still relies on a consensus and validation mechanism.
+						</small>
+					</section>
+					<section>
+						<h2>Blockchain vs Tangle</h2>
+						<small>
+							<table class="fragment">
+								<thead>
+									<tr>
+										<th>Blockchain</th>
+										<th>Tangle</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="fragment">
+										<td>Linked list</td>
+										<td>Graph</td>
+									</tr>
+									<tr class="fragment">
+										<td>Transactions are grouped in blocks and blocks are validated.</td>
+										<td>Transactions validate two other transaction.</td>
+									</tr>
+									<tr class="fragment">
+										<td>Network requires certain fee for transaction</td>
+										<td>No Transaction Fee</td>
+									</tr>
+									<tr class="fragment">
+										<td>Sequential Consensus</td>
+										<td>Parallel Consensus</td>
+									</tr>
+									<tr class="fragment">
+										<td>Network gets slower as nodes increases.</td>
+										<td>Network gets faster as nodes increases. Infinitely Scalable.</td>
+									</tr>
+									<tr class="fragment">
+										<td>Always Onchain</td>
+										<td>Offchain onchain anytime. Partioning.</td>
+									</tr>
+								</tbody>
+							</table>
+						</small>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Use-Cases</h2>
+						<p>
+							<img width="auto" data-src="https://cdn-images-1.medium.com/max/2000/1*hnyLBQDTGkue29GaK6EBog.png" alt="Data Integrity" width="auto" height="200rem">
+							<img width="auto" data-src="https://cdn-images-1.medium.com/max/2000/1*HSb2sc7yt3nBLCQDBElDmQ.png" alt="Data Integrity" width="auto" height="200rem">
+							<br>
+							<img width="auto" data-src="https://cdn-images-1.medium.com/max/2000/1*txr6WJcNW-tCzX1-CoqNKA.png" alt="Data Integrity" width="auto" height="200rem">
+							<img width="auto" data-src="https://cdn-images-1.medium.com/max/2000/1*fGP96XNQGPsKV278d4eNYA.png" alt="Data Integrity" width="auto" height="200rem">
+						</p>
+					</section>
+					<section>
+						<h2>Implementations</h2>
+						<p>
+							<a href="https://data.iota.org/" target="_blank"><img width="auto" data-src="https://cdn-images-1.medium.com/max/2000/1*XOSduao7nmUZUpRmjt4zeg.jpeg" alt="IOTA Data MarketPlace" width="auto" height="100rem"></a>
+							<a href="https://www.youtube.com/watch?v=TJG3MqbLJk4&t=29s" target="_blank"><img width="auto" data-src="https://static.rapidonline.com/catalogueimages/Product/S75-0553P01WL.jpg" alt="Bosch XDK" width="auto" height="100rem"></a>
+							<a href="https://www.youtube.com/watch?v=81rXoSRIRSA" target="_blank"><img width="auto" data-src="http://media.progressiverc.com/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/i/q/iq4.jpg" alt="Smart Charging" width="auto" height="100rem"></a>
+							<a href="https://steemit.com/iota/@iotafeed/green-protocol-first-iota-smart-building" target="_blank"><img width="auto" data-src="https://pbs.twimg.com/media/DPm8J6dVAAA8v2w.jpg" alt="Green Protocol: Smart Cities" width="auto" height="100rem"></a>
+							<br>
+							<a href="https://www.coindesk.com/trust-odometer-blockchain-test-aims-turn-tide-car-tampering/" target="_blank"><img width="auto" data-src="https://media.coindesk.com/uploads/2017/07/Odomoter-2.jpg" alt="Car Black Box" width="auto" height="100rem"></a>
+							<a href="http://iotafeed.com/index.php/2017/08/29/how-iota-and-satoshipay-solved-the-newspaper-industry-crisis-while-no-one-was-paying-attention/" target="_blank"><img width="auto" data-src="http://bitcoinist.com/wp-content/uploads/2016/05/SatoshiPay.png" alt="SatoshiPay" width="auto" height="100rem"></a>
+							<a href="https://www.linkedin.com/pulse/why-snapask-chooses-iota-%E5%88%98%E5%B7%A1-jeffery-liu-?articleId=6325679050631274496#comments-6325679050631274496&trk=prof-post" target="_blank"><img width="auto" data-src="https://i2.wp.com/iotafeed.com/wp-content/uploads/2017/10/image-6.png?w=744" alt="SnapAsk" width="auto" height="100rem"></a>
+							<a href="https://sirinlabs.com/" target="_blank"><img width="auto" data-src="https://bitemycoin.com/wp-content/uploads/2017/10/IOTA-Smartphone.jpg" alt="IOTA Smart Phone" width="auto" height="100rem"></a>
+							<br>
+							<a href="https://oracletimes.com/netherlands-to-start-implementing-iota-miota-for-administrating-legal-documents/" target="_blank"><img width="auto" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/1200px-Flag_of_the_Netherlands.svg.png" alt="Netherlands Government" width="auto" height="100rem"></a>
+							<a href="https://cointelegraph.com/news/taipei-partners-with-iota-to-become-a-blockchain-powered-smart-city" target="_blank"><img width="auto" data-src="https://media1.britannica.com/eb-media/62/4562-004-BBCF13EC.gif" alt="Taiwan Government" width="auto" height="100rem"></a>
+							<a href="http://iotafeed.com/index.php/2018/01/20/iota-proposes-e-crown-solution-to-riksbank/" target="_blank"><img width="auto" data-src="https://www.riksbank.se/riksbanken-ikon.png" alt="Riksbank" width="auto" height="100rem"></a>
+							<a href="https://blog.iota.org/iota-launches-dlt-research-innovation-network-from-norway-9be083dfaf54" target="_blank"><img width="auto" data-src="https://i1.wp.com/www.altcointoday.com/wp-content/uploads/2017/07/Health-innovation.jpg" alt="E Health" width="auto" height="100rem"></a>
+							<a href="https://www.nebbiolo.tech/what-is-fog-computing/" target="_blank"><img width="auto" data-src="http://19yw4b240vb03ws8qm25h366-wpengine.netdna-ssl.com/wp-content/uploads/Fog-computing-architecture.png" alt="Fog Computing" width="auto" height="100rem"></a>
+						</p>
+					</section>
+				</section>
+				<section style="text-align: left;">
+					<center><img width="auto" height="300" data-src="http://i.imgur.com/Vff0Kjb.jpg" alt="The End">
+					<h3 class="fragment highlight-green">Questions?</h3>
+					<p>
+						<small>Kumar Anirudha : <a href="https://anirudha.org" target="_blank">https://anirudha.org</a></small>
+						<br>
+						Twitter: <a href="https://twitter.com/kranirudha">@kranirudha</a><br>
+						Github: <a href="https://twitter.com/anistark">@anistark</a><br>
+						Mail: <a href="mailto:mail@anirudha.org">mail@anirudha.org</a> <br>
+					</p>
+					</center>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex',
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
