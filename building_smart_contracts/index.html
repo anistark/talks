@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Building Smart Contracts</title>
+		<meta name="description" content="">
+		<meta name="author" content="Kumar Anirudha">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="https://i.imgur.com/3aUT4Yr.png" alt="Blockchained India" class="all-revert" width="auto" height="150rem">
+					<h1>Building Smart Contracts on Ethereum</h1>
+					<h3></h3>
+					<p><a href="http://anirudha.org" target="_blank">Kumar Anirudha</a></p>
+				</section>
+				<section>
+					<section>
+						<h2><a href="https://www.ethereum.org" target="_blank">Ethereum</a></h2>
+						<p class="fragment">An open software platform based on blockchain technology that enables developers to build and deploy decentralised applications.</p>
+					</section>
+					<section>
+						<h2>What do you need to run applications on Ethereum</h2>
+						<ul>
+							<li class="fragment">Code <span class="fragment">-> Smart Contracts</span></li>
+							<li class="fragment">Money <span class="fragment">-> Ether</span></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Tokens</h2>
+					</section>
+					<section>
+						<h2>Crowd-sale tokens</h2>
+						<img src="http://i.imgur.com/3we7wrL.jpg" width="auto" height="400rem" title="CrowdSale" />
+					</section>
+					<section>
+						<h2>Developer tokens</h2>
+						<img src="http://i.imgur.com/CpUmmVX.jpg" width="auto" height="400rem" title="Developer" />
+					</section>
+					<section>
+						<h2>Premined tokens</h2>
+						<img src="http://i.imgur.com/nGyiDRk.png" width="auto" height="400rem" title="Premined" />
+					</section>
+					<section>
+						<h2>Minable tokens</h2>
+						<img src="http://i.imgur.com/hwHFGeT.jpg" width="auto" height="400rem" title="Minable" />
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ethereum Ecosystem</h2>
+						<br>
+						<p><small>All key concepts related to Ethereum.</small></p>
+					</section>
+					<section>
+						<h2>Decentralized Application or Dapp</h2>
+						<small class="fragment">
+							Every dapp must meet the following criteria:
+							<ul>
+								<li class="fragment">The application must be completely open-source, it must operate autonomously, and with no entity controlling the majority of its tokens. The application may adapt its protocol in response to proposed improvements and market feedback but all changes must be decided by consensus of its users.</li>
+								<li class="fragment">The application’s data and records of operation must be cryptographically stored in a public, decentralized blockchain in order to avoid any central points of failure.</li>
+								<li class="fragment">The application must use a cryptographic token (Bitcoin or a token native to its system) which is necessary for access to the application and any contribution of value from (miners / farmers) should be rewarded in the application’s tokens.</li>
+								<li class="fragment">The application must generate tokens according to a standard crytptographic algorithm acting as a proof of the value nodes are contributing to the application (Bitcoin uses the Proof of Work Algorithm).</li>
+							</ul>
+						</small>
+					</section>
+					<section>
+						<h2>Network</h2>
+						<ul>
+							<li>Mainnet</li>
+							<li>Testnet</li>
+							<li>TestRPC</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Web3</h2>
+					</section>
+					<section>
+						<h2>Wallets</h2>
+						<img src="https://cryptoyeti.com/wp-content/uploads/2016/03/icon2x.png" width="auto" height="200rem" title="Mist Browser" />
+						<img src="http://www.icocalendar.today/uploads/1/0/9/1/109102193/651389736.png" width="auto" height="200rem" title="Ethereum Wallet" />
+						<img src="https://cdn.worldvectorlogo.com/logos/metamask.svg" width="auto" height="200rem" title="Metamask" />
+					</section>
+					<section>
+						<h2>Ethereum Virtual Machine</h2>
+						<p>
+							The Ethereum Virtual Machine or EVM is the runtime environment for smart contracts in Ethereum. It is not only sandboxed but actually completely isolated, which means that code running inside the EVM has no access to network, filesystem or other processes.
+						</p>
+						<img src="https://media.coindesk.com/uploads/2017/03/Screen-Shot-2017-03-21-at-5.01.03-PM.png" width="auto" height="400rem" title="EVM" />
+					</section>
+					<section>
+						<h2>Solidity</h2>
+						<p>Solidity is a contract-oriented, high-level language whose syntax is similar to that of JavaScript and it is designed to target the Ethereum Virtual Machine (EVM).</p>
+						<pre>
+							<code data-trim>
+	pragma solidity ^0.4.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function set(uint x) {
+        storedData = x;
+    }
+
+    function get() constant returns (uint) {
+        return storedData;
+    }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Gas</h2>
+						<p class="fragment">Gas is the internal pricing for running a transaction or contract in Ethereum.</p>
+						<p class="fragment">Ether used to pay gas = Gas price (that you pick) * Gas used (based on the computation)</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Setting up Ethereum for development</h2>
+					</section>
+					<section>
+						<h2>Ethereum Client</h2>
+						<p class="fragment">
+							Clients are used to establish a node and connect with the other nodes.
+							<ul class="fragment">
+								<li><a href="https://github.com/ethereum/go-ethereum" target="_blank">Geth</a> - Go Client <a href="https://github.com/ethereum/go-ethereum/wiki/Installing-Geth" target="_blank">Install</a></li>
+								<li><a href="https://github.com/ethereum/cpp-ethereum" target="_blank">CPP-Ethereum</a> - C++ Client (Not Suitable for mining)</li>
+								<li><a href="https://github.com/ethereum/pyethapp" target="_blank">PyEthApp</a> - Python</li>
+								<li><a href="https://www.parity.io/" target="_blank">Parity</a> Rust</li>
+								<li><a href="https://github.com/ethereumjs/ethereumjs-lib" target="_blank">Ethereum JS Lib</a> - JavaScript</li>
+								<li><a href="https://github.com/ethereum/ethereumj" target="_blank">EthereumJ</a> - Java</li>
+								<li><a href="https://github.com/cryptape/ruby-ethereum" target="_blank">Ruby Ethereum</a> - Ruby</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Wallet Client</h2>
+						<a href="https://github.com/ethereum/mist/releases"><img src="https://cryptoyeti.com/wp-content/uploads/2016/03/icon2x.png" width="auto" height="400rem" title="Mist Browser" target="_blank" /></a>
+						<a href="https://github.com/ethereum/mist/releases"><img src="http://www.icocalendar.today/uploads/1/0/9/1/109102193/651389736.png" width="auto" height="400rem" title="Ethereum Wallet" target="_blank" /></a>
+					</section>
+					<section>
+						<h2>Code Editor</h2>
+						<a href="https://atom.io/"><img src="https://discourse-cdn-sjc1.com/business/uploads/github_atom/490/d8548f4ce56f1599.png" width="auto" height="200rem" title="Atom" target="_blank" /></a>
+						<a href="https://www.sublimetext.com/3"><img src="https://codekitapp.com/images/help/free-sublime-icon@2x.png" width="auto" height="200rem" title="Sublime Text 3" target="_blank" /></a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ethereum Blockchain</h2>
+					</section>
+					<section>
+						<h2>Genesis Block</h2>
+						<pre>
+							<code data-trim>
+								{
+    "config": {
+        "chainId": 15,
+        "homesteadBlock": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    },
+    "difficulty": "200000000",
+    "gasLimit": "2100000",
+    "alloc": {
+        "7df9a875a174b3bc565e6424a0050ebc1b2d1d82": { "balance": "300000" },
+        "f41c74c9ae680c1aa78f42e5647a62f353b7bdde": { "balance": "400000" }
+    }
+}
+						</code></pre>
+						<small><a href="https://gist.github.com/anistark/526672b36f165cac11ae3735908ee61c" target="_blank">Gist</a></small>
+					</section>
+					<section>
+						<h2>Setup Local Node</h2>
+						<p class="fragment">
+							Initialize Genesis
+							<pre class="fragment">
+								<code data-trim>
+									geth --datadir path/to/custom/data/folder init genesis.json
+								</code>
+							</pre>
+						</p>
+						<p class="fragment">
+							Run Node
+							<pre class="fragment">
+								<code data-trim>
+									geth --datadir path/to/custom/data/folder --networkid 15
+								</code>
+							</pre>
+						</p>
+						<p class="fragment">
+							Congratualations! You've successfully run an ethereum blockchain
+						</p>
+					</section>
+					<section>
+						<h2>Playing with Ethereum Blockchain</h2>
+						<p class="fragment">
+							Start Console
+							<pre class="fragment">
+								<code data-trim>
+									geth attach datadir/geth.ipc console
+								</code>
+							</pre>
+						</p>
+						<p class="fragment">
+							Start Console with Miner
+							<pre class="fragment">
+								<code data-trim>
+									geth --mine --minerthreads=1
+								</code>
+							</pre>
+						</p>
+					</section>
+					<section>
+						<p>
+							Check all accounts: <pre><code data-trim>eth.accounts</code></pre>
+							Create new accounts: <pre><code data-trim>personal.newAccount()</code></pre>
+							Get Balance: <pre><code data-trim>web3.fromWei(eth.getBalance(eth.coinbase), "ether")</code></pre>
+							Start Mining: <pre><code data-trim>miner.start(4)</code></pre>
+							Stop Mining: <pre><code data-trim>miner.stop()</code></pre>
+						</p>
+					</section>
+					<section>
+						<h2>Keep Playing</h2>
+						<p>
+							All Geth commands
+							<pre>
+								<code data-trim>
+									geth help
+								</code>
+							</pre>
+						</p>
+					</section>
+				</section>
+				<section data-background="https://www.tenx.tech/img/tenx_black_bg.jpg">
+					<section>
+						<h2>Getting started with Smart Contracts</h2>
+						<p class="fragment">
+							Accounts
+							<ol class="fragment">
+								<li>External Accounts</li>
+								<li>Contract Accounts</li>
+							</ol>
+						</p>
+						<p class="fragment">
+							Key Items
+							<ol class="fragment">
+								<li><a href="http://remix.ethereum.org/" target="_blank">Remix IDE</a></li>
+								<li>Mist/Metamask</li>
+							</ol>
+						</p>
+					</section>
+					<section>
+						<h2>Our First Smart Contract</h2>
+						<p>Storage Contract</p>
+						<pre>
+							<code data-trim>
+								pragma solidity ^0.4.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function set(uint x) public {
+        storedData = x;
+    }
+
+    function get() public constant returns (uint) {
+        return storedData;
+    }
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Shape Calculator Contract</p>
+						<pre>
+							<code data-trim>
+								pragma solidity ^0.4.0;
+
+/** @title Shape calculator. */
+contract shapeCalculator {
+    /** @dev Calculates a rectangle's surface and perimeter.
+      * @param w Width of the rectangle.
+      * @param h Height of the rectangle.
+      * @return s The calculated surface.
+      * @return p The calculated perimeter.
+      */
+    function rectangle(uint w, uint h) returns (uint s, uint p) {
+        s = w * h;
+        p = 2 * (w + h);
+    }
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Token/ Coin Contract</p>
+						<pre>
+							<code data-trim>
+								pragma solidity ^0.4.0;
+
+contract BlockchainedIndiaCoin {
+    // The keyword "public" makes those variables
+    // readable from outside.
+    address public minter;
+    mapping (address => uint) public balances;
+
+    // Events allow light clients to react on
+    // changes efficiently.
+    event Sent(address from, address to, uint amount);
+
+    // This is the constructor whose code is
+    // run only when the contract is created.
+    function Coin() public {
+        minter = msg.sender;
+    }
+
+    function mint(address receiver, uint amount) public {
+        if (msg.sender != minter) return;
+        balances[receiver] += amount;
+    }
+
+    function send(address receiver, uint amount) public {
+        if (balances[msg.sender] < amount) return;
+        balances[msg.sender] -= amount;
+        balances[receiver] += amount;
+        Sent(msg.sender, receiver, amount);
+    }
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Voting Contract</p>
+						<pre>
+							<code data-trim>
+								pragma solidity ^0.4.16;
+
+/// @title Voting with delegation.
+contract Ballot {
+    // This declares a new complex type which will
+    // be used for variables later.
+    // It will represent a single voter.
+    struct Voter {
+        uint weight; // weight is accumulated by delegation
+        bool voted;  // if true, that person already voted
+        address delegate; // person delegated to
+        uint vote;   // index of the voted proposal
+    }
+
+    // This is a type for a single proposal.
+    struct Proposal {
+        bytes32 name;   // short name (up to 32 bytes)
+        uint voteCount; // number of accumulated votes
+    }
+
+    address public chairperson;
+
+    // This declares a state variable that
+    // stores a `Voter` struct for each possible address.
+    mapping(address => Voter) public voters;
+
+    // A dynamically-sized array of `Proposal` structs.
+    Proposal[] public proposals;
+
+    /// Create a new ballot to choose one of `proposalNames`.
+    function Ballot(bytes32[] proposalNames) public {
+        chairperson = msg.sender;
+        voters[chairperson].weight = 1;
+
+        // For each of the provided proposal names,
+        // create a new proposal object and add it
+        // to the end of the array.
+        for (uint i = 0; i < proposalNames.length; i++) {
+            // `Proposal({...})` creates a temporary
+            // Proposal object and `proposals.push(...)`
+            // appends it to the end of `proposals`.
+            proposals.push(Proposal({
+                name: proposalNames[i],
+                voteCount: 0
+            }));
+        }
+    }
+
+    // Give `voter` the right to vote on this ballot.
+    // May only be called by `chairperson`.
+    function giveRightToVote(address voter) public {
+        // If the argument of `require` evaluates to `false`,
+        // it terminates and reverts all changes to
+        // the state and to Ether balances. It is often
+        // a good idea to use this if functions are
+        // called incorrectly. But watch out, this
+        // will currently also consume all provided gas
+        // (this is planned to change in the future).
+        require((msg.sender == chairperson) && !voters[voter].voted && (voters[voter].weight == 0));
+        voters[voter].weight = 1;
+    }
+
+    /// Delegate your vote to the voter `to`.
+    function delegate(address to) public {
+        // assigns reference
+        Voter storage sender = voters[msg.sender];
+        require(!sender.voted);
+
+        // Self-delegation is not allowed.
+        require(to != msg.sender);
+
+        // Forward the delegation as long as
+        // `to` also delegated.
+        // In general, such loops are very dangerous,
+        // because if they run too long, they might
+        // need more gas than is available in a block.
+        // In this case, the delegation will not be executed,
+        // but in other situations, such loops might
+        // cause a contract to get "stuck" completely.
+        while (voters[to].delegate != address(0)) {
+            to = voters[to].delegate;
+
+            // We found a loop in the delegation, not allowed.
+            require(to != msg.sender);
+        }
+
+        // Since `sender` is a reference, this
+        // modifies `voters[msg.sender].voted`
+        sender.voted = true;
+        sender.delegate = to;
+        Voter storage delegate = voters[to];
+        if (delegate.voted) {
+            // If the delegate already voted,
+            // directly add to the number of votes
+            proposals[delegate.vote].voteCount += sender.weight;
+        } else {
+            // If the delegate did not vote yet,
+            // add to her weight.
+            delegate.weight += sender.weight;
+        }
+    }
+
+    /// Give your vote (including votes delegated to you)
+    /// to proposal `proposals[proposal].name`.
+    function vote(uint proposal) public {
+        Voter storage sender = voters[msg.sender];
+        require(!sender.voted);
+        sender.voted = true;
+        sender.vote = proposal;
+
+        // If `proposal` is out of the range of the array,
+        // this will throw automatically and revert all
+        // changes.
+        proposals[proposal].voteCount += sender.weight;
+    }
+
+    /// @dev Computes the winning proposal taking all
+    /// previous votes into account.
+    function winningProposal() public view
+            returns (uint winningProposal)
+    {
+        uint winningVoteCount = 0;
+        for (uint p = 0; p < proposals.length; p++) {
+            if (proposals[p].voteCount > winningVoteCount) {
+                winningVoteCount = proposals[p].voteCount;
+                winningProposal = p;
+            }
+        }
+    }
+
+    // Calls winningProposal() function to get the index
+    // of the winner contained in the proposals array and then
+    // returns the name of the winner
+    function winnerName() public view
+            returns (bytes32 winnerName)
+    {
+        winnerName = proposals[winningProposal()].name;
+    }
+}
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section data-background='https://media.giphy.com/media/KWgntGvMaUpoI/giphy.gif' style="text-align: right;">
+					<p>
+						Congratulations!
+						<br><br>
+						Now, you know
+						<br>
+						how to build a
+						<br>
+						smart contract.
+					</p>
+				</section>
+				<section data-background="http://www.ethereumwiki.com/wp-content/uploads/2017/08/ethereum-world-1.jpg">
+					<h2>What's Next</h2>
+					<ul class="fragment">
+						<li>Start Building a DApp with <a href="https://github.com/ethereum/solc-js">solc.js</a></li>
+						<li>Build a complete Dapp with Truffle</li>
+						<li>Explore other languages on Ethereum, Serenity, Vyper(python)</li>
+						<li>Explore other blockchains and platforms like Hyperledger, Stellar, Ripple, etc.</li>
+						<li>Contribute to other Open Source Projects or open source your own project and let others contribute to it.</li>
+						<li>Build something amazing. Don't forget to share with us.</li>
+					</ul>
+				</section>
+				<section>
+						<img width="auto" height="400" data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhY-cheNNcSY4iouhQK0P70yFknMhUPYTrZ9xs9H36ca8J_x1Mjg" alt="The End">
+						<small>
+							<p>
+								Kumar Anirudha :
+								<br>
+								Facebook: <a href="https://fb.com/kranirudha">@kranirudha</a><br>
+								Twitter: <a href="https://twitter.com/kranirudha">@kranirudha</a><br>
+								Github: <a href="https://twitter.com/anistark">@anistark</a><br>
+								Mail: <a href="mailto:anirudha@blockchainedindia.com">anirudha@blockchainedindia.com</a> <br>
+							</p>
+							<br />
+							<p>
+								Blockchained India :
+								<br>
+								Website: <a href="https://blockchainedindia.com">https://blockchainedindia.com</a><br>
+								Facebook: <a href="https://fb.com/blockchainedindia">@blockchainedindia</a><br>
+								Twitter: <a href="https://twitter.com/blockchainedind">@blockchainedind</a><br>
+								Telegram: <a href="https://t.me/blockchainedindia">@blockchainedindia</a><br>
+								Github: <a href="https://twitter.com/blockchainedindia">@blockchainedindia</a><br>
+								Mail: <a href="mailto:contact@blockchainedindia.com">contact@blockchainedindia.com</a> <br>
+							</p>
+						</small>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex',
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
