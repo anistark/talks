@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Building Dapps on Blockchain - Kumar Anirudha</title>
+		<meta name="description" content="Building Dapps on Blockchain">
+		<meta name="author" content="Kumar Anirudha">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/tangle.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="https://i.imgur.com/PDRcotr.png" alt="Acyclic Labs" class="all-revert">
+					<h1>Building Dapps on Blockchain</h1>
+					<h3></h3>
+					<p><a href="http://anirudha.org">Kumar Anirudha</a></p>
+				</section>
+				<section>
+					<section>
+						<h2>WHAT</h2>
+					</section>
+					<section>
+						<p class="fade-away">
+							Decentralised Network
+						</p>
+						<p class="fragment fade-away">
+							&amp;<br />
+							Open transparent distributed database
+						</p>
+					</section>
+					<section>
+						<p class="fade-away">
+							<h2>Blockchain Structure</h2>
+							<a href="https://anders.com/blockchain/blockchain.html" target="_blank"><img width="100%" height="auto" data-src="https://www.researchgate.net/publication/321140497/figure/fig1/AS:561845380620288@1510965785515/Typical-blockchain-structure.png" alt="Blockchain"></a>
+						</p>
+					</section>
+					<section>
+						<h2>Genesis Block</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://i.imgur.com/df2k7CU.png" alt="Genesis Block">
+						</p>
+					</section>
+					<section>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://www.thomsonreuters.com/content/dam/ewp-m/images/thomsonreuters/en/graphics/how-blockchain-works-infographic.png.transform/q90/image.png" alt="Blockchain working">
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>WHY</h2>
+					</section>
+					<section>
+						<h2>What does Blockchain<br />really solve?</h2>
+						<p class="fragment fade-away">
+							<img width="100%" height="auto" data-src="https://i.imgur.com/elq7m42.png" alt="Blockchain really solving">
+						</p>
+					</section>
+					<section>
+						<h2>How does blockchain solve?</h2>
+						<p class="fragment fade-away">
+							<img width="100%" height="auto" data-src="https://i.imgur.com/ptYsVxR.jpg" alt="Blockchain used for">
+						</p>
+					</section>
+					<section>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://cdn-images-1.medium.com/max/2000/1*rRuZqum3gwp_IxvyBhHqbQ.png" alt="Blockchain use-cases">
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>HOW</h2>
+					</section>
+					<section>
+						<h2>Architecture</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://i.imgur.com/KHDzG8f.png" alt="Blockchain layers">
+						</p>
+					</section>
+					<section>
+						<h2>Which type of Blockchain?</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://i.imgur.com/VWQ7U9x.png" alt="Blockchain layers">
+						</p>
+					</section>
+					<section>
+						<h2>Public Blockchain</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://steemitimages.com/DQmTmVidqGfVBnp1qLm4p2zc9Um2HqGm613LPtNGRZKcamZ/AAEAAQAAAAAAAAwDAAAAJDFlNjdlZDAzLTRjNzktNGZkYy1iNTg1LWYxNTYzMTljNWViOA.png" alt="Public Blockchain">
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Components needed</h2>
+						<p class="fragment fade-away">
+							<img width="400px" height="auto" data-src="https://http2.mlstatic.com/D_Q_NP_835271-MLB27384481712_052018-Q.jpg" alt="Ethereum"><br />
+							We are going to take Ethereum public blockchain example.
+						</p>
+					</section>
+					<section>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2018/03/Blockchain_components-top-blockchain-interview-questions-edureka.png" alt="Components">
+						</p>
+					</section>
+					<section>
+						<h2>Node - Run or Share</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://cdnsite2.assist.ro/sites/default/files/styles/big/public/images/blog/How%20to%20connect%20an%20Ethereum%20node%20to%20the%20web%20browser%20-%20Ovidiu%20Vorobchevici%20-%20ASSIST-Software...png?itok=9fzywa9Y" alt="Ethereum Node">
+						</p>
+					</section>
+					<section>
+						<h2>Smart Contracts</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://cdn-images-1.medium.com/max/1569/1*I3xnYEy_go6bAACbkD43Tw.png" alt="Solidity">
+						</p>
+					</section>
+					<section>
+						<h2>Language</h2>
+						<p class="fade-away">
+							<img width="400px" height="auto" data-src="https://solidity.readthedocs.io/en/v0.4.25/_images/logo.svg" alt="Solidity">
+						</p>
+						<h2>Solidity</h2>
+					</section>
+					<section>
+						<h2>Solidity Code Example</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://i.stack.imgur.com/0rh9k.png" alt="Solidity Code">
+						</p>
+					</section>
+					<section>
+						<h2>Ethers</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://cdn-images-1.medium.com/max/1600/1*N4Xyvmrm-6uMzJcKkU7BMw.png" alt="Ethers">
+						</p>
+					</section>
+					<section>
+						<h2>Wallets</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://qph.fs.quoracdn.net/main-qimg-a82b2475ef1ba2ea65d0ab9dde00db4b" alt="Wallet">
+						</p>
+					</section>
+					<section>
+						<h2>Browser
+						<p class="fade-away">
+							<img width="400px" height="auto" data-src="https://remix.readthedocs.io/en/latest/_images/remix_editor.png" alt="Remix Browser">
+							<img width="400px" height="auto" data-src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2018/06/1528328834contracts-1024x595.png" alt="Mist">
+						</p>
+					</section>
+					<section>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://image.slidesharecdn.com/web3jethereummadrid-170628232206/95/web3j-overview-14-638.jpg?cb=1498692178" alt="web3">
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>But</h2>
+						<h2 class="fragment fade-away">Regulations</h2>
+					</section>
+					<section>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://steemitimages.com/p/BgxWBRxjvNhnbM9DiyHtCptYaDNF3xx85r8if8spuMjfmZh58wh6ZNziUG2V5F9nCUBStuJiXS5ACwFtS2hUUhYciXxFNgvL2BPHgxpKBmZfrvGK6jNeTGGARgyY15R3EpJjAFbiJFGNUqqERT4kfqev12Sr8Sap9PUUQLVMr692GdU?format=match&mode=fit" alt="Blockchain Regulations">
+						</p>
+					</section>
+					<section>
+						<h2>Workaround</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://www.devteam.space/wp-content/uploads/2018/06/private-blockchain.png" alt="Private Blockchain">
+						</p>
+					</section>
+					<section>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://image.slidesharecdn.com/understandingprivateblockchains-160616123633/95/understanding-private-blockchains-6-638.jpg?cb=1466083565" alt="multichain">
+						</p>
+					</section>
+					<section>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://cdn-images-1.medium.com/max/1200/1*Qkd1uEBTrpVcukxxGEKl0Q.png" alt="no trust">
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Introducing Sentinel</h2>
+						<img width="350px" height="auto" data-src="https://i.imgur.com/CJ2DswC.png" alt="sentinel">
+						<p class="fragment fade-away">
+							A blockchain-powered platform enabling a connected and inclusive world by building powerful, compliant and easy-to-use smart contract solutions to enable leasing infrastructure effortlessly.
+						</p>
+					</section>
+					<section>
+						<h2>Architecture</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://i.imgur.com/63TQBT3.png" alt="Sentinel Architecture">
+						</p>
+					</section>
+					<section>
+						<h2>Public Blockchain powered by Sentinel</h2>
+						<p class="fade-away">
+							<img width="100%" height="auto" data-src="https://i.imgur.com/wCvLQCv.png" alt="Sentinel blockchain">
+						</p>
+					</section>
+				</section>
+				<section style="text-align: left;">
+					<center><img width="auto" height="300" data-src="http://i.imgur.com/Vff0Kjb.jpg" alt="The End">
+					<h3 class="fragment highlight-green">Questions?</h3>
+					<p>
+						<small>Kumar Anirudha</small>
+						<br>
+						Twitter: <a href="https://twitter.com/kranirudha">@kranirudha</a><br>
+						Github: <a href="https://twitter.com/anistark">@anistark</a><br>
+						Mail: <a href="mailto:anirudha@acycliclabs.com">anirudha@acycliclabs.com</a><br>
+					</p>
+					</center>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex',
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
