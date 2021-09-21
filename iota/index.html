@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>IOTA - The Future of Blockchain</title>
+		<meta name="description" content="iota, tangle, introduction, blockchain, dlt, distributed, machine, economy, DAG, acyclic">
+		<meta name="author" content="Kumar Anirudha">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/tangle.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="https://www.iota.org/logo-icon-light.svg" alt="IOTA" class="all-revert">
+					<h1>IOTA</h1>
+					<h3>The Future of Blockchain</h3>
+					<p><a href="https://anirudha.dev">Kumar Anirudha</a></p>
+				</section>
+				<section>
+					<h2>Who am I?</h2>
+					<ul>
+						<li class="fragment">Working on Blockchain Tech since 2016</li>
+						<li class="fragment">Co-founded, <a href="https://blockchainedindia.com/">Blockchained India</a></li>
+						<li class="fragment">Founded, <a href="https://acycliclabs.com/">Acyclic Labs</a></li>
+						<li class="fragment">Developer Advocate, <a href="https://www.iota.org/">IOTA Foundation</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Let's roll back a decade ago</h2>
+					<p>
+						<ul>
+							<li class="fragment">Huge fees for money/asset transfer.</li>
+							<li class="fragment">Delayed oversees transfer.</li>
+							<li class="fragment">Controlled by any government or Institution.</li>
+							<li class="fragment">Corrupt Humans. No Trust among peers.</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Solution</h2>
+						<p>
+							<h4 class="fragment">Blockchain<h4>
+							<ul>
+								<li class="fragment">Bitcoin for the first time established trust in a trustless system.</li>
+								<li class="fragment">Blockchain paved the way to more distributed data systems.</li>
+								<li class="fragment">Peer to peer networks gave control back to the people who earlier felt at mercy of the big organisations.</li>
+								<li class="fragment">Internet faced a revolution unlike any other.</li>
+								<li class="fragment">Everyone can now be rewarded for every little action they do. Incentives are the new have-to and not can do.</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Problems with Blockchain</h2>
+						<p>
+							<ul>
+								<li class="fragment">Users vs Network</li>
+								<li class="fragment">Scalability</li>
+								<li class="fragment">Tax/ Miners</li>
+								<li class="fragment">Always Online</li>
+								<li class="fragment">High end hardware requirements</li>
+								<li class="fragment">Data Overflow</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Solutions in Blockchain</h2>
+						<p>
+							<ul>
+								<li class="fragment">Users vs Network - Solved by various consensus mechanisms</li>
+								<li class="fragment">Scalability - Solved temporarily by lightning network, raiden network, plasma, sharding, etc.</li>
+								<li class="fragment">Tax/ Miners - No solution</li>
+								<li class="fragment">Always Online - No solution</li>
+								<li class="fragment">High end hardware requirements - Light chains solve to some extent if mining is not involved.</li>
+								<li class="fragment">Data Overflow - Offline Storage</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2><a href="https://www.youtube.com/watch?v=ivWqqfzunhI" target="_blank">Tangle</a></h2>
+						<img src="https://iota-news.com/wp-content/uploads/blockchain-tangle-dag.png" alt="Tangle" class="fragment">
+						<small class="fragment">
+							It is a novel new distributed ledger architecture that is based on a DAG (Directed Acyclic Graph). One might refer to it as a "Blockchain without Blocks and the Chain" (semantically, it's not really a Blockchain).
+							<br />
+							<a href="https://iota.org/IOTA_Whitepaper.pdf" target="_blank">IOTA Whitepaper</a>
+							<br />
+							At its core, the Tangle still has the same underlying principles as a Blockchain: it's still a distributed database, it's still a P2P Network and it still relies on a consensus and validation mechanism.
+						</small>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Directed Acyclic Graph ( DAG )</h2>
+						<small class="fragment">
+							In mathematics and computer science, a directed acyclic graph (DAG), is a finite directed graph with no directed cycles.
+						</small>
+						<img src="https://camo.githubusercontent.com/842a0078517fee461adb2af301f7d05d4756c932/68747470733a2f2f692e696d6775722e636f6d2f6e4a45453647702e706e67" alt="Tangle initial" class="fragment">
+					</section>
+					<section>
+						<h2>Adding a transaction</h2>
+						<img src="https://camo.githubusercontent.com/84abcc0f23ac4564b0bcf48288acb67a8f04fe68/68747470733a2f2f692e696d6775722e636f6d2f6a6e6c3446376e2e706e67" alt="Tangle add a transaction">
+					</section>
+					<section>
+						<h2>Another Transaction</h2>
+						<img src="https://camo.githubusercontent.com/dc4e93683be52a08d9a321147bf3c8f34662b508/68747470733a2f2f692e696d6775722e636f6d2f39634c514953352e706e67" alt="Tangle Another Transaction">
+					</section>
+					<section>
+						<h2>New Tangle State</h2>
+						<img src="https://camo.githubusercontent.com/471ce692f5dbff9a53671bc382e9d872c3dfa8f9/68747470733a2f2f692e696d6775722e636f6d2f305672453842452e706e67" alt="Tangle New Tangle State">
+					</section>
+					<section>
+						<h2>Confirmation Levels</h2>
+						<img src="https://camo.githubusercontent.com/a58ae33f449d1283aa5776e50a6b462b9d1638d5/68747470733a2f2f692e696d6775722e636f6d2f73316f45525a4e2e706e67" alt="Tangle Confirmation Levels">
+					</section>
+					<section>
+						<h2>Propagation Delay</h2>
+						<img src="https://camo.githubusercontent.com/49c1a7c02d2ee15c2723ab2fb875487a7caa50a5/68747470733a2f2f692e696d6775722e636f6d2f514c50706d4b412e706e67" alt="Tangle Propagation Delay">
+					</section>
+					<section>
+						<h2>Double Spend</h2>
+						<img src="https://camo.githubusercontent.com/66f813bcd3a24e175e77c7a6d4c093dba5c99fae/68747470733a2f2f692e696d6775722e636f6d2f445573467053412e706e67" alt="Tangle Double Spend">
+					</section>
+					<section>
+						<h2>Double Spend Resolution</h2>
+						<img src="https://camo.githubusercontent.com/b5d6667b403431dd60b083410c49f7ce19c3041b/68747470733a2f2f692e696d6775722e636f6d2f70624f6a5675312e706e67" alt="Tangle Double Spend Resolution">
+					</section>
+					<section>
+						<h2>Offline Tangle</h2>
+						<img src="https://camo.githubusercontent.com/622f093f78ee3a19406e8e167e48500c1a58ca43/68747470733a2f2f692e696d6775722e636f6d2f43307a617562332e706e67" alt="Tangle Offline Tangle">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Tangle Scaling</h2>
+						<small>
+							<img src="https://cdn-images-1.medium.com/max/1200/1*fTOSBJmdaIIpvikk89jI-w.png" alt="Tangle Scale" width="auto" height="500rem">
+						</small>
+					</section>
+					<section>
+						<h2>Tangle Scaling</h2>
+						<small>
+							<img src="https://i.imgur.com/R2S758k.png" alt="Tangle Scale" width="auto" height="500rem">
+						</small>
+					</section>
+					<section>
+						<h2>Blockchain vs Tangle</h2>
+						<small>
+							<table class="fragment">
+								<thead>
+									<tr>
+										<th>Blockchain</th>
+										<th>Tangle</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="fragment">
+										<td>Linked list</td>
+										<td>Graph</td>
+									</tr>
+									<tr class="fragment">
+										<td>Transactions are grouped in blocks and blocks are validated.</td>
+										<td>Transactions validate two other transaction.</td>
+									</tr>
+									<tr class="fragment">
+										<td>Network requires certain fee for transaction</td>
+										<td>No Transaction Fee</td>
+									</tr>
+									<tr class="fragment">
+										<td>Sequential Consensus</td>
+										<td>Parallel Consensus</td>
+									</tr>
+									<tr class="fragment">
+										<td>Network gets slower as nodes increases.</td>
+										<td>Network gets faster as nodes increases. Infinitely Scalable.</td>
+									</tr>
+									<tr class="fragment">
+										<td>Always Onchain</td>
+										<td>Offchain onchain anytime. Partioning.</td>
+									</tr>
+								</tbody>
+							</table>
+						</small>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Enabling a new</h2>
+						<h1>Machine Economy</h1>
+						<img src="https://pbs.twimg.com/media/Dwy9hY_XQAE3SwP.jpg" alt="" width="800px">
+					</section>
+					<section>
+						<h4>It's happening NOW</h4>
+						<img src="https://pbs.twimg.com/media/DqHveMgWoAAByK4.png" alt="">
+					</section>
+					<section>
+						<h4>A new digital age</h4>
+						<img src="https://i.imgur.com/e9sQVl5.png" alt="">
+					</section>
+					<section>
+						<img src="https://miro.medium.com/max/2000/1*J1Ypz4f9cW9SGkuhZinF0w.png" alt="">
+					</section>
+				</section>
+				<section>
+					<h4>Welcome to The Future</h4>
+					<p>
+						<h1 class="fragment">IOTA</h1>
+						<p class="fragment">
+							<a href="https://iota.org">https://iota.org</a>
+						</p>
+					</p>
+				</section>
+				<section style="text-align: left;">
+					<center><img width="auto" height="300" data-src="https://i.imgur.com/EauDddc.jpg" alt="The End">
+					<h3 class="fragment highlight-green">Questions?</h3>
+					<p>
+						<small>Kumar Anirudha : <a href="https://anirudha.dev" target="_blank">https://anirudha.dev</a></small>
+						<br>
+						Twitter: <a href="https://twitter.com/kranirudha">@kranirudha</a><br>
+						Github: <a href="https://github.com/anistark">@anistark</a><br>
+						<!-- Mail: <a href="mailto:mail@anirudha.dev">mail@anirudha.dev</a> <br> -->
+					</p>
+					</center>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex',
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
