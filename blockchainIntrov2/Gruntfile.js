@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 				' * http://lab.hakim.se/reveal-js\n' +
 				' * MIT licensed\n' +
 				' *\n' +
-				' * Copyright (C) 2017 Kumar Anirudha, http://anirudha.org\n' +
+				' * Copyright (C) 2017 Kumar Anirudha, https://anirudha.dev\n' +
 				' */'
 		},
 

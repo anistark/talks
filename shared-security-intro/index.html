@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>An Introduction to Shared Security in Decentralised Apps - Kumar Anirudha</title>
+		<meta name="description" content="An Introduction to Shared Security in Decentralised Protocols">
+		<meta name="author" content="Kumar Anirudha">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>An Introduction to</h3>
+					<h1>Shared Security</h1>
+					<h3>in Decentralised Apps</h3>
+					<p>
+						<h4><a href="https://anirudha.dev">Kumar Anirudha</a></h4>
+						<small>
+							<br><a href="https://github.com/anistark">github.com/anistark</a>
+							<br><a href="https://twitter.com/kranirudha">twitter.com/kranirudha</a>
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Who am I</h2>
+					<p>
+						<ul>
+							<li>Working on blockchain since 2016.</li>
+							<li>Co-founded Blockchained India. Currently largest blockchain community in the country.</li>
+							<li>
+								Founder, Acyclic Labs.
+								<ul>
+									<li>Blockchain Research and Development Studio.</li>
+									<li>Solutioning on FinTech, Supply Chain and other domains.</li>
+								</ul>
+							</li>
+							<li>Currently, working with IOTA Foundation to build the next generation decentralised tech for developers.</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>What are Decentralised Apps</h2>
+						<p>
+							<ul id="fragment">
+								<li class="fragment">No Central Authority or Server</li>
+								<li class="fragment">Distributed Database</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>Some Common Terms</h2>
+						<h3>Web3</h3>
+						<img src="https://i.imgur.com/SmDu70Q.jpg" alt="" height="500px">
+					</section>
+					<section>
+						<h2>Some Common Terms</h2>
+						<h3>Decentralised Networks</h3>
+						<img src="https://i.imgur.com/NRykdYW.png" alt="" height="500px">
+					</section>
+					<section>
+						<h2>Some Common Terms</h2>
+						<h3>Blockchain</h3>
+						<img src="https://i.imgur.com/2DC3KLz.jpg" alt="" height="500px">
+					</section>
+					<section>
+						<h2>Some Common Terms</h2>
+						<h3>DAG (Directed Acyclic Graph)</h3>
+						<img src="https://i.imgur.com/R2S758k.png" alt="" height="500px">
+					</section>
+				</section>
+				<section>
+					<h3>Immense number of Decentralised Networks</h3>
+					<p class="fragment fade-away">
+						<img src="https://i.imgur.com/7LpaQZw.jpg" alt="" height="400px">
+						<h4>Over 17,681 cryptos listed on coinmarketcap. Millions more unlisted.</h4>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Rise of Cross-Chain Applications</h2>
+					</section>
+					<section>
+						<h2>What are Cross-Chain Applications?</h2>
+						<p class="fragment">Any application that can operate across more than one network.</p>
+					</section>
+					<section>
+						<img src="https://i.imgur.com/iMKcE0t.png" alt="">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Interoperability</h2>
+						<img src="https://i.imgur.com/NcDpqeK.jpg" alt="" width="750px">
+					</section>
+					<section>
+						<img src="https://i.imgur.com/X1zCbYN.png" alt="" width="750px">
+					</section>
+					<section>
+						<img src="https://i.imgur.com/4PnyZbl.png" alt="" width="750px">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Bridges</h2>
+						<p>
+							<img src="https://i.imgur.com/bXxG4Vl.png" alt="">
+						</p>
+					</section>
+					<section>
+						<h2>How</h2>
+						<img src="https://i.imgur.com/vW30uUt.png" alt="">
+					</section>
+					<section>
+						<h2>An Example</h2>
+						<img src="https://i.imgur.com/QAqqQJC.png" alt="">
+					</section>
+					<section>
+						<img src="https://i.imgur.com/0Fae4n6.jpg" alt="">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Problem with Cross-Chain Applications</h2>
+						<p>
+							<ul>
+								<li class="fragment">Availability</li>
+								<li class="fragment">Fee</li>
+								<li class="fragment">Interoperability</li>
+								<li class="fragment">Security</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h2>A Quick Comparision</h2>
+						<img src="https://i.imgur.com/YssZpU3.png" alt="">
+					</section>
+				</section>
+				<section>
+					<h2>Security in Decentralised Protocols</h2>
+					<p>
+						<ul>
+							<li class="fragment"><strong>Shared Security</strong>: Shared security is a family of technologies that include optimistic rollups, zk-rollups, sharding, and Interchain Security.</li>
+							<li class="fragment"><strong>Interchain Security</strong>: Interchain Security is the Cosmos specific category of Shared Security that uses IBC (Inter-Blockchain Communication).</li>
+							<li class="fragment"><strong>Cross-Chain Validation</strong>: Cross Chain Validation is the specific IBC-level protocol that enables Interchain Security.</li>
+							<li class="fragment"><strong>Cross Chain Collateralization</strong></li>
+							<li class="fragment"><strong>Shared Staking</strong></li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Shared Security</h2>
+					</section>
+					<section>
+						<h2>State Channels</h2>
+						<p>
+							State channels utilize multisig contracts to enable participants to transact quickly and freely off-chain, then settle finality with Mainnet. This minimizes network congestion, fees, and delays. The two types of channels are currently state channels and payment channels.
+						</p>
+					</section>
+					<section>
+						<h2>Sidechains</h2>
+						<p>
+							A sidechain is an independent EVM-compatible blockchain which runs in parallel to Mainnet. These are compatible with Ethereum via two-way bridges, and run under their own chosen rules of consensus, and block parameters.
+						</p>
+					</section>
+					<section>
+						<h2>Rollups</h2>
+						<p>Rollups perform transaction execution outside layer 1 and then the data is posted to layer 1 where consensus is reached. As transaction data is included in layer 1 blocks, this allows rollups to be secured by native Ethereum security.</p>
+					</section>
+					<section>
+						<h2>Types of Rollups</h2>
+						<p>
+							<ul>
+								<li class="fragment"><strong>Optimistic rollups</strong>: assumes transactions are valid by default and only runs computation, via a fraud proof, in the event of a challenge.</li>
+								<li class="fragment"><strong>Zero-knowledge rollups</strong>: runs computation off-chain and submits a validity proof to the chain.</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section data-background-color="#000000" data-background-video="./teaser_black_no_noice_vibe_hq.mp4" 
+					data-background-video-loop data-background-video-muted>
+					</section>
+					<section data-background-color="#0e0a14" data-background-video="https://files.iota.org/media/assembly-token.mp4" 
+					data-background-video-loop data-background-video-muted>
+					</section>
+					<section>
+						<h2>Assembly</h2>
+						<p class="fragment">
+							Assembly is a permissionless protocol to build, connect and deploy smart contracts on a feeless multi-chain network.
+							<small><a href="https://assembly.sc/" target="_blank">assembly.sc</a></small>
+						</p>
+					</section>
+				</section>
+				<section style="text-align: left;">
+					<center><img class="fragment shrink" width="auto" height="300" data-src="images/theEnd.jpg" alt="The End">
+					<h3 class="fragment highlight-blue">Questions?</h3>
+					<p class="fragment">
+						<small>Kumar Anirudha :</small>
+						<br>
+						- <a href="https://twitter.com/kranirudha">https://twitter.com/kranirudha</a> <br>
+						<!-- - <a href="mailto:mail@anirudha.org">mail@anirudha.dev</a> <br> -->
+					</p>
+					</center>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
