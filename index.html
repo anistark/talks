@@ -1,6 +1,329 @@
-<html>
-<head><title>AniStark Talks and Presentations</title></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniStark Talks and Presentations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .talks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .talk-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .talk-card:nth-child(1) { animation-delay: 0.1s; }
+        .talk-card:nth-child(2) { animation-delay: 0.2s; }
+        .talk-card:nth-child(3) { animation-delay: 0.3s; }
+        .talk-card:nth-child(4) { animation-delay: 0.4s; }
+        .talk-card:nth-child(5) { animation-delay: 0.5s; }
+        .talk-card:nth-child(6) { animation-delay: 0.6s; }
+        .talk-card:nth-child(7) { animation-delay: 0.7s; }
+        .talk-card:nth-child(8) { animation-delay: 0.8s; }
+        .talk-card:nth-child(9) { animation-delay: 0.9s; }
+        .talk-card:nth-child(10) { animation-delay: 1s; }
+        .talk-card:nth-child(11) { animation-delay: 1.1s; }
+        .talk-card:nth-child(12) { animation-delay: 1.2s; }
+
+        .talk-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .talk-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .talk-header h2 {
+            font-size: 1.4em;
+            word-break: break-word;
+        }
+
+        .talk-content {
+            padding: 20px;
+        }
+
+        .talk-description {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        .talk-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 0.85em;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .talk-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .talk-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .talk-button:active {
+            transform: scale(0.98);
+        }
+
+@keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .talks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .talk-header h2 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
 <body>
-Welcome
+    <div class="container">
+        <header>
+            <h1>🎤 AniStark Talks & Presentations</h1>
+            <p>Explore presentations on blockchain, cryptocurrency, web development, and more</p>
+        </header>
+
+        <div class="talks-grid" id="talksContainer"></div>
+
+        <footer>
+            <p>&copy; 2025 AniStark. All talks and presentations are available on <a href="https://github.com/anistark/talks" style="color: white; text-decoration: underline;">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Talk data with descriptions and categories
+        const talks = [
+            {
+                name: "Bitcoin Introduction",
+                path: "bitcoinIntro",
+                description: "Discover the fundamentals of Bitcoin, its revolutionary technology, and how it changed the financial world.",
+                tags: ["Cryptocurrency", "Blockchain", "Finance"]
+            },
+            {
+                name: "Blockchain Introduction",
+                path: "blockchainIntro",
+                description: "An in-depth exploration of blockchain technology, its mechanisms, and real-world applications.",
+                tags: ["Blockchain", "Technology", "Distributed Systems"]
+            },
+            {
+                name: "Blockchain Introduction v2",
+                path: "blockchainIntrov2",
+                description: "Updated introduction to blockchain with enhanced explanations and new case studies.",
+                tags: ["Blockchain", "Technology", "Advanced"]
+            },
+            {
+                name: "Building Smart Contracts",
+                path: "building_smart_contracts",
+                description: "Learn how to develop, deploy, and optimize smart contracts on blockchain platforms.",
+                tags: ["Smart Contracts", "Development", "Solidity"]
+            },
+            {
+                name: "Building DApps",
+                path: "buildingdapps",
+                description: "Create decentralized applications with modern web technologies and blockchain integration.",
+                tags: ["DApps", "Web3", "Development"]
+            },
+            {
+                name: "Decentralising the Web",
+                path: "decentralising-web",
+                description: "Explore the concepts, challenges, and opportunities in building a decentralized web.",
+                tags: ["Web3", "Decentralization", "Architecture"]
+            },
+            {
+                name: "Decentralising with Ethereum",
+                path: "decentralising-with-ethereum",
+                description: "Build decentralized solutions using Ethereum and its ecosystem of tools and protocols.",
+                tags: ["Ethereum", "Smart Contracts", "DeFi"]
+            },
+            {
+                name: "Introduction to IOTA",
+                path: "iota",
+                description: "Learn about IOTA's Tangle technology and its applications in IoT and distributed systems.",
+                tags: ["IOTA", "Technology", "IoT"]
+            },
+            {
+                name: "Node.js Introduction",
+                path: "nodeIntroduction",
+                description: "Get started with Node.js and learn how to build scalable server-side JavaScript applications.",
+                tags: ["Node.js", "JavaScript", "Backend"]
+            },
+            {
+                name: "Python Journey",
+                path: "pyjourney",
+                description: "Explore Python programming, its ecosystem, and community contributions.",
+                tags: ["Python", "Programming", "Community"]
+            },
+            {
+                name: "Shared Security Introduction",
+                path: "shared-security-intro",
+                description: "Understand shared security models and collaborative security approaches in distributed systems.",
+                tags: ["Security", "Distribution", "Best Practices"]
+            },
+            {
+                name: "Tangle Introduction",
+                path: "tangleIntro",
+                description: "Discover the Tangle data structure and its advantages over traditional blockchain technology.",
+                tags: ["Tangle", "DAG", "Technology"]
+            },
+            {
+                name: "Your next server can be your browser",
+                path: "Your-next-server-can-be-your-browser.pdf",
+                description: "Explore how modern web technologies enable the browser to become a powerful server-side platform.",
+                tags: ["Web Technology", "Browser", "Architecture"],
+                isPDF: true
+            },
+            {
+                name: "Bringing Python To Web Assembly",
+                path: "Bringing-Python-To-Web-Assembly.pdf",
+                description: "Discover how to bring Python to the web using WebAssembly for high-performance computing.",
+                tags: ["Python", "WebAssembly", "Web Technology"],
+                isPDF: true
+            }
+        ];
+
+        // Render talks dynamically
+        const container = document.getElementById('talksContainer');
+        talks.forEach(talk => {
+            const card = document.createElement('div');
+            card.className = 'talk-card';
+            const buttonText = talk.isPDF ? 'Download PDF →' : 'View Presentation →';
+            const href = talk.isPDF ? talk.path : `${talk.path}/index.html`;
+            card.innerHTML = `
+                <div class="talk-header">
+                    <h2>${talk.name}</h2>
+                </div>
+                <div class="talk-content">
+                    <p class="talk-description">${talk.description}</p>
+                    <div class="talk-meta">
+                        ${talk.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <a href="${href}" class="talk-button">${buttonText}</a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
 </body>
 </html>
