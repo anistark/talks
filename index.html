@@ -1,350 +1,819 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AniStark Talks and Presentations</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AniStark // Talks &amp; Presentations</title>
+<meta name="description" content="Talks and presentations by Kumar Anirudha on Python, WebAssembly, blockchain and the decentralised web. Slide decks and PDFs from PyCon, EuroPython, IndiaFOSS and more.">
+<meta name="author" content="Kumar Anirudha">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#07090a">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
+<meta property="og:type" content="website">
+<meta property="og:title" content="AniStark // Talks &amp; Presentations">
+<meta property="og:description" content="Slide decks and PDFs on Python, WebAssembly, blockchain and the decentralised web.">
+<meta property="og:url" content="https://talks.anirudha.dev/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AniStark // Talks &amp; Presentations">
+<meta name="twitter:description" content="Slide decks and PDFs on Python, WebAssembly, blockchain and the decentralised web.">
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+<link rel="icon" href="favicon.ico" sizes="16x16">
 
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 60px;
-            animation: slideDown 0.6s ease-out;
-        }
+<style>
+/* ─────────────────────────────────────────────────────────────
+   Pixelspace — 5x7 pixel display face by Kumar Anirudha
+   https://pixelspace.anirudha.dev · SIL OFL 1.1 (fonts/OFL.txt)
+   ───────────────────────────────────────────────────────────── */
+@font-face {
+    font-family: "Pixelspace";
+    src: url("fonts/Pixelspace-Regular.woff2") format("woff2"),
+         url("fonts/Pixelspace-Regular.ttf")   format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+:root {
+    /* ink */
+    --bg:        #07090a;
+    --panel:     #0d1114;
+    --panel-hi:  #111719;
+    --line:      #1c2529;
+    --ink:       #cdd8da;
+    --ink-body:  #9fb0b3;
+    --ink-dim:   #8a9a9f;
+    --ink-faint: #55666b;
 
-        header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
+    /* the one accent + the one semantic */
+    --acc:       #4ade9b;
+    --acc-glow:  rgba(74, 222, 155, .16);
+    --warn:      #ffb454;
 
-        .talks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+    /* type — Pixelspace is a display face; long prose stays in mono.
+       Flip --font-body to var(--font-px) to go full pixel. */
+    --font-px:   "Pixelspace", ui-monospace, monospace;
+    --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --font-body: var(--font-mono);
 
-        .talk-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
+    /* Pixelspace draws crisp at font-sizes that are multiples of 7 */
+    --t-xs: 11px;
+    --t-sm: 14px;
+    --t-md: 21px;
+    --t-lg: 28px;
+    --t-xl: 42px;
 
-        .talk-card:nth-child(1) { animation-delay: 0.1s; }
-        .talk-card:nth-child(2) { animation-delay: 0.2s; }
-        .talk-card:nth-child(3) { animation-delay: 0.3s; }
-        .talk-card:nth-child(4) { animation-delay: 0.4s; }
-        .talk-card:nth-child(5) { animation-delay: 0.5s; }
-        .talk-card:nth-child(6) { animation-delay: 0.6s; }
-        .talk-card:nth-child(7) { animation-delay: 0.7s; }
-        .talk-card:nth-child(8) { animation-delay: 0.8s; }
-        .talk-card:nth-child(9) { animation-delay: 0.9s; }
-        .talk-card:nth-child(10) { animation-delay: 1s; }
-        .talk-card:nth-child(11) { animation-delay: 1.1s; }
-        .talk-card:nth-child(12) { animation-delay: 1.2s; }
+    --stagger: 45ms;
+}
 
-        .talk-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .talk-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-        }
+html { scroll-behavior: smooth; }
 
-        .talk-header h2 {
-            font-size: 1.4em;
-            word-break: break-word;
-        }
+body {
+    background: var(--bg);
+    color: var(--ink-body);
+    font-family: var(--font-body);
+    font-size: var(--t-sm);
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: clamp(28px, 6vw, 72px) clamp(16px, 4vw, 32px);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 
-        .talk-content {
-            padding: 20px;
-        }
+    /* Pixelspace is monospace by construction — kerning and ligatures
+       only blur the grid. Off everywhere. */
+    font-kerning: none;
+    font-variant-ligatures: none;
+}
 
-        .talk-description {
-            color: #555;
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            min-height: 60px;
-        }
+.px { font-family: var(--font-px); }
 
-        .talk-meta {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            font-size: 0.85em;
-        }
+/* ── CRT overlay: scanlines + grid + vignette ─────────────── */
+.crt { position: fixed; inset: 0; pointer-events: none; z-index: 100; }
 
-        .tag {
-            background: #f0f0f0;
-            color: #667eea;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: 500;
-        }
+.crt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(200, 255, 230, .028) 0 1px,
+        transparent 1px 3px
+    );
+}
 
-        .talk-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            width: 100%;
-            text-align: center;
-        }
+.crt::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 120% 90% at 50% 0%, transparent 40%, rgba(0,0,0,.55) 100%);
+}
 
-        .talk-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
+.grid-bg {
+    position: fixed;
+    inset: -1px;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: .28;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 20%, transparent 85%);
+}
 
-        .talk-button:active {
-            transform: scale(0.98);
-        }
+.container { max-width: 1180px; margin: 0 auto; position: relative; }
 
-@keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* ── header ───────────────────────────────────────────────── */
+header { margin-bottom: clamp(32px, 5vw, 56px); }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.prompt {
+    flex: 1;
+    min-width: 0;            /* let the shell line ellipsis instead of pushing */
+    font-family: var(--font-px);
+    font-size: var(--t-sm);
+    color: var(--ink-faint);
+    letter-spacing: .02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-        footer {
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-            opacity: 0.9;
-        }
+.social { display: flex; gap: 6px; flex-shrink: 0; }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
+.social-btn {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    transition: color .18s, border-color .18s, background-color .18s;
+}
+.social-btn svg { width: 13px; height: 13px; fill: currentColor; display: block; }
+.social-btn:hover, .social-btn:focus-visible {
+    color: var(--acc);
+    border-color: var(--acc);
+    background: var(--acc-glow);
+    outline: none;
+}
+.prompt .user { color: var(--acc); }
+.prompt .cmd  { color: var(--ink-dim); }
 
-            .talks-grid {
-                grid-template-columns: 1fr;
-            }
+.cursor {
+    color: var(--acc);
+    animation: blink 1.05s steps(1, end) infinite;
+}
 
-            .talk-header h2 {
-                font-size: 1.1em;
-            }
-        }
-    </style>
+h1 {
+    font-family: var(--font-px);
+    font-size: clamp(24px, 5.6vw, var(--t-xl));
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: .01em;
+    font-weight: 400;
+    margin-bottom: 14px;
+}
+h1 .hl { color: var(--acc); text-shadow: 0 0 22px var(--acc-glow); }
+
+.sub {
+    font-family: var(--font-px);
+    font-size: var(--t-sm);
+    color: var(--ink-dim);
+    letter-spacing: .02em;
+}
+.sub b { color: var(--ink); font-weight: 400; }
+
+.rule {
+    height: 1px;
+    background: linear-gradient(90deg, var(--acc), var(--line) 22%, var(--line) 100%);
+    margin-top: 24px;
+    opacity: .8;
+}
+
+/* ── console / filter bar ─────────────────────────────────── */
+.console {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: 14px 16px;
+    margin-bottom: clamp(24px, 4vw, 40px);
+    display: grid;
+    gap: 14px;
+}
+
+.searchrow { display: flex; align-items: center; gap: 10px; }
+.searchrow .chev { color: var(--acc); font-family: var(--font-px); font-size: var(--t-sm); }
+
+#q {
+    flex: 1;
+    min-width: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--ink);
+    font-family: var(--font-px);
+    font-size: var(--t-sm);
+    letter-spacing: .02em;
+    padding: 4px 0;
+}
+#q::placeholder { color: var(--ink-faint); }
+#q::-webkit-search-decoration,
+#q::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+.kbd {
+    font-family: var(--font-px);
+    font-size: var(--t-xs);
+    color: var(--ink-faint);
+    border: 1px solid var(--line);
+    padding: 3px 7px;
+    white-space: nowrap;
+}
+.searchrow:focus-within .kbd { opacity: 0; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chip, .sortbtn {
+    font-family: var(--font-px);
+    font-size: var(--t-xs);
+    letter-spacing: .04em;
+    color: var(--ink-dim);
+    background: transparent;
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: color .18s, border-color .18s, background-color .18s;
+}
+.chip:hover, .sortbtn:hover { color: var(--ink); border-color: var(--ink-faint); }
+.chip[aria-pressed="true"] {
+    color: var(--acc);
+    border-color: var(--acc);
+    background: var(--acc-glow);
+}
+
+.sortrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+}
+.sortbtn { border: 0; padding: 4px 6px; }
+.sortbtn[aria-pressed="true"] { color: var(--acc); }
+.sortrow .label { font-family: var(--font-px); font-size: var(--t-xs); color: var(--ink-faint); letter-spacing: .04em; }
+.sortrow .count { margin-left: auto; font-family: var(--font-px); font-size: var(--t-xs); color: var(--ink-faint); }
+
+/* ── grid ─────────────────────────────────────────────────── */
+/* 1px gaps + a 1px outset ring per card: adjacent rings meet exactly in
+   the gap and read as a single hairline lattice, while an unfilled cell
+   in the last row stays empty instead of showing a ghost panel. */
+.talks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1px;
+}
+
+/* ── card ─────────────────────────────────────────────────── */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    padding: 22px 20px 18px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 0 0 1px var(--line);
+    transition: background-color .22s ease, transform .22s ease, box-shadow .22s ease;
+    animation: cardIn .5s cubic-bezier(.2, .7, .3, 1) both;
+    animation-delay: calc(var(--i, 0) * var(--stagger));
+}
+
+/* corner reticle: top-left + bottom-right */
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--ink-faint);
+    opacity: .5;
+    transition: width .22s ease, height .22s ease, border-color .22s ease, opacity .22s ease;
+}
+.card::before { top: 7px;  left: 7px;  border-right: 0; border-bottom: 0; }
+.card::after  { bottom: 7px; right: 7px; border-left: 0;  border-top: 0; }
+
+.card:hover, .card:focus-visible {
+    background: var(--panel-hi);
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px var(--acc), 0 0 34px -8px var(--acc-glow);
+    z-index: 2;
+    outline: none;
+}
+.card:hover::before, .card:hover::after,
+.card:focus-visible::before, .card:focus-visible::after {
+    width: 24px;
+    height: 24px;
+    border-color: var(--acc);
+    opacity: 1;
+}
+
+.card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.card-title {
+    font-family: var(--font-px);
+    font-size: var(--t-sm);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink);
+    letter-spacing: .02em;
+    transition: color .18s;
+}
+.card:hover .card-title, .card:focus-visible .card-title { color: var(--acc); }
+
+.badge {
+    flex-shrink: 0;
+    font-family: var(--font-px);
+    font-size: var(--t-xs);
+    letter-spacing: .06em;
+    padding: 3px 6px;
+    border: 1px solid currentColor;
+    line-height: 1.2;
+}
+.badge--deck { color: var(--acc); }
+.badge--pdf  { color: var(--warn); }
+
+.card-meta {
+    font-family: var(--font-px);
+    font-size: var(--t-xs);
+    color: var(--ink-faint);
+    letter-spacing: .04em;
+    margin-bottom: 14px;
+}
+
+.card-desc {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--ink-body);
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 10px;
+    font-family: var(--font-px);
+    font-size: var(--t-xs);
+    color: var(--ink-faint);
+    letter-spacing: .03em;
+    margin-bottom: 16px;
+}
+.card-tags span { transition: color .18s; }
+.card:hover .card-tags span { color: var(--ink-dim); }
+
+.card-go {
+    font-family: var(--font-px);
+    font-size: var(--t-xs);
+    letter-spacing: .08em;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color .18s, border-color .18s;
+}
+.card:hover .card-go, .card:focus-visible .card-go {
+    color: var(--acc);
+    border-color: rgba(74, 222, 155, .3);
+}
+.card-go .arrow { display: inline-block; transition: transform .22s ease; }
+.card:hover .card-go .arrow { transform: translateX(5px); }
+
+.empty {
+    font-family: var(--font-px);
+    font-size: var(--t-sm);
+    color: var(--ink-faint);
+    text-align: center;
+    padding: 56px 20px;
+    letter-spacing: .02em;
+}
+.empty[hidden] { display: none; }
+
+/* ── footer ───────────────────────────────────────────────── */
+footer {
+    margin-top: clamp(40px, 6vw, 72px);
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-px);
+    font-size: var(--t-xs);
+    color: var(--ink-faint);
+    letter-spacing: .03em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    justify-content: space-between;
+    line-height: 2;
+}
+
+a.link {
+    color: var(--ink-dim);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color .18s, border-color .18s;
+}
+a.link:hover, a.link:focus-visible {
+    color: var(--acc);
+    border-color: var(--acc);
+    outline: none;
+}
+
+/* ── keyframes ────────────────────────────────────────────── */
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+    0%, 49%   { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* ── responsive ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .talks-grid { grid-template-columns: 1fr; }
+    .prompt { font-size: var(--t-xs); }
+    footer { flex-direction: column; gap: 2px; }
+}
+
+/* ── motion safety ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .card { animation: none; }
+    .cursor { animation: none; }
+    .card:hover, .card:focus-visible { transform: none; }
+    .card::before, .card::after { transition: border-color .18s, opacity .18s; }
+    .card-go .arrow { transition: none; }
+    * { transition-duration: .01ms !important; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎤 AniStark Talks & Presentations</h1>
-            <p>Explore presentations on blockchain, cryptocurrency, web development, and more</p>
-        </header>
 
-        <div class="talks-grid" id="talksContainer"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="crt" aria-hidden="true"></div>
 
-        <footer>
-            <p>&copy; 2025 AniStark. All talks and presentations are available on <a href="https://github.com/anistark/talks" style="color: white; text-decoration: underline;">GitHub</a></p>
-        </footer>
+<div class="container">
+
+    <header>
+        <div class="topbar">
+            <div class="prompt" aria-hidden="true"><span class="user">anistark@talks</span>:~$ <span class="cmd" id="cmd"></span><span class="cursor">&#9610;</span></div>
+
+            <nav class="social" aria-label="Social links">
+                <a class="social-btn" href="https://x.com/kranirudha" target="_blank" rel="me noopener" aria-label="Kumar Anirudha on X">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a class="social-btn" href="https://fosstodon.org/@ani" target="_blank" rel="me noopener" aria-label="Kumar Anirudha on Mastodon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg>
+                </a>
+            </nav>
+        </div>
+        <h1 aria-label="Talks and Presentations"><span id="title" data-text="TALKS &amp; PRESENTATIONS">TALKS &amp; PRESENTATIONS</span><span class="hl">_</span></h1>
+        <p class="sub"><b id="statCount">0</b> decks &middot; <b id="statYears">&nbsp;</b> &middot; python, wasm, blockchain, web</p>
+        <div class="rule"></div>
+    </header>
+
+    <div class="console">
+        <div class="searchrow">
+            <span class="chev" aria-hidden="true">&gt;</span>
+            <input id="q" type="search" autocomplete="off" spellcheck="false"
+                   placeholder="filter_" aria-label="Filter talks by name, venue, year or tag">
+            <span class="kbd" aria-hidden="true">press /</span>
+        </div>
+
+        <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
+
+        <div class="sortrow">
+            <span class="label" aria-hidden="true">sort:</span>
+            <button class="sortbtn px" data-sort="recent" aria-pressed="true">[recent]</button>
+            <button class="sortbtn px" data-sort="az" aria-pressed="false">[a-z]</button>
+            <span class="count" id="count" aria-live="polite"></span>
+        </div>
     </div>
 
-    <script>
-        // Talk data with descriptions and categories
-        const talks = [
-            {
-                name: "Bitcoin Introduction",
-                path: "bitcoinIntro",
-                description: "Discover the fundamentals of Bitcoin, its revolutionary technology, and how it changed the financial world.",
-                tags: ["Cryptocurrency", "Blockchain", "Finance"]
-            },
-            {
-                name: "Blockchain Introduction",
-                path: "blockchainIntro",
-                description: "An in-depth exploration of blockchain technology, its mechanisms, and real-world applications.",
-                tags: ["Blockchain", "Technology", "Distributed Systems"]
-            },
-            {
-                name: "Blockchain Introduction v2",
-                path: "blockchainIntrov2",
-                description: "Updated introduction to blockchain with enhanced explanations and new case studies.",
-                tags: ["Blockchain", "Technology", "Advanced"]
-            },
-            {
-                name: "Building Smart Contracts",
-                path: "building_smart_contracts",
-                description: "Learn how to develop, deploy, and optimize smart contracts on blockchain platforms.",
-                tags: ["Smart Contracts", "Development", "Solidity"]
-            },
-            {
-                name: "Building DApps",
-                path: "buildingdapps",
-                description: "Create decentralized applications with modern web technologies and blockchain integration.",
-                tags: ["DApps", "Web3", "Development"]
-            },
-            {
-                name: "Decentralising the Web",
-                path: "decentralising-web",
-                description: "Explore the concepts, challenges, and opportunities in building a decentralized web.",
-                tags: ["Web3", "Decentralization", "Architecture"]
-            },
-            {
-                name: "Decentralising with Ethereum",
-                path: "decentralising-with-ethereum",
-                description: "Build decentralized solutions using Ethereum and its ecosystem of tools and protocols.",
-                tags: ["Ethereum", "Smart Contracts", "DeFi"]
-            },
-            {
-                name: "Introduction to IOTA",
-                path: "iota",
-                description: "Learn about IOTA's Tangle technology and its applications in IoT and distributed systems.",
-                tags: ["IOTA", "Technology", "IoT"]
-            },
-            {
-                name: "Node.js Introduction",
-                path: "nodeIntroduction",
-                description: "Get started with Node.js and learn how to build scalable server-side JavaScript applications.",
-                tags: ["Node.js", "JavaScript", "Backend"]
-            },
-            {
-                name: "Python Journey",
-                path: "pyjourney",
-                description: "Explore Python programming, its ecosystem, and community contributions.",
-                tags: ["Python", "Programming", "Community"]
-            },
-            {
-                name: "Shared Security Introduction",
-                path: "shared-security-intro",
-                description: "Understand shared security models and collaborative security approaches in distributed systems.",
-                tags: ["Security", "Distribution", "Best Practices"]
-            },
-            {
-                name: "Tangle Introduction",
-                path: "tangleIntro",
-                description: "Discover the Tangle data structure and its advantages over traditional blockchain technology.",
-                tags: ["Tangle", "DAG", "Technology"]
-            },
-            {
-                name: "Your next server can be your browser - IndiaFOSS 2025",
-                path: "Your-next-server-can-be-your-browser.pdf",
-                description: "Explore how modern web technologies enable the browser to become a powerful server-side platform.",
-                tags: ["Web Technology", "Browser", "Architecture"],
-                isPDF: true
-            },
-            {
-                name: "Bringing Python To Web Assembly - PyCon Thailand 2025",
-                path: "Bringing-Python-To-Web-Assembly.pdf",
-                description: "Discover how to bring Python to the web using WebAssembly for high-performance computing.",
-                tags: ["Python", "WebAssembly", "Web Technology"],
-                isPDF: true
-            },
-            {
-                name: "Feluda",
-                path: "feluda.pdf",
-                description: "A presentation on Feluda, exploring its features and applications.",
-                tags: ["Technology", "Development"],
-                isPDF: true
-            },
-            {
-                name: "Python to WASM - PyCon India 2025",
-                path: "python_to_wasm.pdf",
-                description: "Learn how to compile Python to WebAssembly for browser-based execution.",
-                tags: ["Python", "WebAssembly", "Web Technology"],
-                isPDF: true
-            },
-            {
-                name: "WASM Python - EuroPython 2025",
-                path: "wasm-python-europython25.pdf",
-                description: "Presentation on WebAssembly and Python at EuroPython 2025 conference.",
-                tags: ["Python", "WebAssembly", "Conference"],
-                isPDF: true
-            }
-        ];
+    <main class="talks-grid" id="talksContainer"></main>
+    <p class="empty" id="empty" hidden>no matching decks &mdash; try another filter</p>
 
-        // Render talks dynamically
-        const container = document.getElementById('talksContainer');
-        talks.forEach(talk => {
-            const card = document.createElement('div');
-            card.className = 'talk-card';
-            const buttonText = talk.isPDF ? 'Download PDF →' : 'View Presentation →';
-            const href = talk.isPDF ? talk.path : `${talk.path}/index.html`;
-            card.innerHTML = `
-                <div class="talk-header">
-                    <h2>${talk.name}</h2>
-                </div>
-                <div class="talk-content">
-                    <p class="talk-description">${talk.description}</p>
-                    <div class="talk-meta">
-                        ${talk.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
-                    <a href="${href}" class="talk-button">${buttonText}</a>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    </script>
+    <footer>
+        <span>&copy; <span id="year">2025</span> Kumar Anirudha &middot; <a class="link" href="https://github.com/anistark/talks">source on github</a></span>
+        <span>set in <a class="link" href="https://pixelspace.anirudha.dev/">Pixelspace</a> &middot; a 5x7 pixel face</span>
+    </footer>
+
+</div>
+
+<script>
+const talks = [
+    {
+        name: "Your Next Server Can Be Your Browser",
+        venue: "IndiaFOSS", year: 2025,
+        path: "Your-next-server-can-be-your-browser.pdf", format: "pdf",
+        description: "How modern web runtimes turn the browser into a capable server-side platform, and what that means for how we ship software.",
+        tags: ["wasm", "browser", "architecture"]
+    },
+    {
+        name: "Bringing Python To WebAssembly",
+        venue: "PyCon Thailand", year: 2025,
+        path: "Bringing-Python-To-Web-Assembly.pdf", format: "pdf",
+        description: "Getting Python running on WebAssembly: the toolchains, the trade-offs, and where the performance actually lands.",
+        tags: ["python", "wasm", "web"]
+    },
+    {
+        name: "Python to WASM",
+        venue: "PyCon India", year: 2025,
+        path: "python_to_wasm.pdf", format: "pdf",
+        description: "Compiling Python to WebAssembly for browser-based execution, from first build to a working deployment.",
+        tags: ["python", "wasm", "web"]
+    },
+    {
+        name: "WASM Python",
+        venue: "EuroPython", year: 2025,
+        path: "wasm-python-europython25.pdf", format: "pdf",
+        description: "A tour of the WebAssembly + Python ecosystem, the runtimes worth knowing, and the gaps still open.",
+        tags: ["python", "wasm", "web"]
+    },
+    {
+        name: "Feluda",
+        venue: "", year: 2025,
+        path: "feluda.pdf", format: "pdf",
+        description: "Feluda, a dependency license and risk analyser: what it checks, how it works, and why it exists.",
+        tags: ["rust", "tooling", "open source"]
+    },
+    {
+        name: "Decentralising the Web",
+        venue: "", year: 2022,
+        path: "decentralising-web", format: "deck",
+        description: "The concepts, hard problems and open opportunities in building a genuinely decentralised web.",
+        tags: ["web3", "decentralisation", "architecture"]
+    },
+    {
+        name: "Shared Security in Decentralised Apps",
+        venue: "", year: 2022,
+        path: "shared-security-intro", format: "deck",
+        description: "Shared security models and how decentralised protocols pool trust instead of each rebuilding it alone.",
+        tags: ["security", "web3", "protocols"]
+    },
+    {
+        name: "Introduction to IOTA",
+        venue: "", year: 2021,
+        path: "iota", format: "deck",
+        description: "IOTA's Tangle and what a feeless, blockless ledger unlocks for IoT and machine-to-machine payments.",
+        tags: ["iota", "dag", "iot"]
+    },
+    {
+        name: "Blockchain Introduction v2",
+        venue: "Webinar", year: 2021,
+        path: "blockchainIntrov2", format: "deck",
+        description: "A reworked introduction to blockchain with clearer mechanics and fresher case studies.",
+        tags: ["blockchain", "web3"]
+    },
+    {
+        name: "Building DApps on Blockchain",
+        venue: "", year: 2018,
+        path: "buildingdapps", format: "deck",
+        description: "Building decentralised applications by wiring familiar web tooling to on-chain state.",
+        tags: ["web3", "dapps", "development"]
+    },
+    {
+        name: "Python and Community",
+        venue: "", year: 2018,
+        path: "pyjourney", format: "deck",
+        description: "A personal journey through Python and the communities around it, from BangPypers to DjangoGirls.",
+        tags: ["python", "community"]
+    },
+    {
+        name: "Building Smart Contracts",
+        venue: "", year: 2018,
+        path: "building_smart_contracts", format: "deck",
+        description: "Writing, deploying and tightening up smart contracts, with the failure modes worth designing around.",
+        tags: ["solidity", "smart contracts", "development"]
+    },
+    {
+        name: "Introduction to Tangle",
+        venue: "", year: 2018,
+        path: "tangleIntro", format: "deck",
+        description: "The Tangle data structure explained, and where a DAG beats a chain of blocks.",
+        tags: ["iota", "dag", "blockchain"]
+    },
+    {
+        name: "Bitcoin and Blockchain",
+        venue: "", year: 2017,
+        path: "bitcoinIntro", format: "deck",
+        description: "Bitcoin from the ground up: the protocol, the incentives, and the landscape it opened.",
+        tags: ["bitcoin", "blockchain", "finance"]
+    },
+    {
+        name: "Decentralising with Ethereum",
+        venue: "", year: 2017,
+        path: "decentralising-with-ethereum", format: "deck",
+        description: "Building decentralised systems on Ethereum and the tooling that grew up around it.",
+        tags: ["ethereum", "smart contracts", "web3"]
+    },
+    {
+        name: "Diving into Blockchain",
+        venue: "", year: 2017,
+        path: "blockchainIntro", format: "deck",
+        description: "An in-depth look at how blockchains actually work and where they hold up in the real world.",
+        tags: ["blockchain", "distributed systems"]
+    },
+    {
+        name: "Node.js: An Introduction",
+        venue: "", year: 2016,
+        path: "nodeIntroduction", format: "deck",
+        description: "Getting started with Node.js and the event loop model behind scalable server-side JavaScript.",
+        tags: ["nodejs", "javascript", "backend"]
+    }
+];
+
+/* ── refs ─────────────────────────────────────────────────── */
+const container = document.getElementById('talksContainer');
+const filtersEl = document.getElementById('filters');
+const emptyEl   = document.getElementById('empty');
+const countEl   = document.getElementById('count');
+const qEl       = document.getElementById('q');
+
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const state = { q: '', tag: '*', sort: 'recent' };
+
+/* ── header stats ─────────────────────────────────────────── */
+const years = talks.map(t => t.year);
+document.getElementById('statCount').textContent = talks.length;
+document.getElementById('statYears').textContent = Math.min(...years) + '-' + Math.max(...years);
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ── build cards once ─────────────────────────────────────── */
+const nodes = talks.map((talk, ord) => {
+    const el = document.createElement('a');
+    el.className = 'card';
+    talk.ord = ord;   // ties inside a year keep the order declared above
+    el.href = talk.format === 'pdf' ? talk.path : talk.path + '/index.html';
+    if (talk.format === 'pdf') { el.target = '_blank'; el.rel = 'noopener'; }
+
+    const badge = talk.format === 'pdf' ? 'PDF' : 'DECK';
+    const meta  = [talk.venue, talk.year].filter(Boolean).join(' · ');
+    const go    = talk.format === 'pdf' ? 'open pdf' : 'open deck';
+
+    el.innerHTML =
+        '<div class="card-top">' +
+            '<h2 class="card-title">' + talk.name + '</h2>' +
+            '<span class="badge badge--' + talk.format + '">' + badge + '</span>' +
+        '</div>' +
+        '<div class="card-meta">' + meta + '</div>' +
+        '<p class="card-desc">' + talk.description + '</p>' +
+        '<div class="card-tags">' + talk.tags.map(t => '<span>#' + t + '</span>').join('') + '</div>' +
+        '<div class="card-go"><span>' + go + '</span><span class="arrow">&gt;&gt;</span></div>';
+
+    el.dataset.haystack = [talk.name, talk.venue, talk.year, talk.description, talk.tags.join(' ')]
+        .join(' ').toLowerCase();
+    el.dataset.tags = talk.tags.join('|');
+    el._talk = talk;
+    return el;
+});
+
+/* ── tag chips: most common first, long tail lives in search ─ */
+const counts = new Map();
+talks.forEach(t => t.tags.forEach(tag => counts.set(tag, (counts.get(tag) || 0) + 1)));
+const topTags = [...counts.entries()]
+    .filter(([, n]) => n > 1)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 9)
+    .map(([tag]) => tag);
+
+[['*', 'all'], ...topTags.map(t => [t, t])].forEach(([value, label]) => {
+    const b = document.createElement('button');
+    b.className = 'chip';
+    b.dataset.tag = value;
+    b.textContent = label;
+    b.setAttribute('aria-pressed', String(value === '*'));
+    b.addEventListener('click', () => {
+        state.tag = state.tag === value ? '*' : value;
+        filtersEl.querySelectorAll('.chip').forEach(c =>
+            c.setAttribute('aria-pressed', String(c.dataset.tag === state.tag)));
+        apply();
+    });
+    filtersEl.appendChild(b);
+});
+
+/* ── sort ─────────────────────────────────────────────────── */
+document.querySelectorAll('.sortbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        state.sort = btn.dataset.sort;
+        document.querySelectorAll('.sortbtn').forEach(b =>
+            b.setAttribute('aria-pressed', String(b.dataset.sort === state.sort)));
+        apply();
+    });
+});
+
+/* ── search ───────────────────────────────────────────────── */
+qEl.addEventListener('input', () => { state.q = qEl.value.trim().toLowerCase(); apply(); });
+
+document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== qEl) {
+        e.preventDefault();
+        qEl.focus();
+    } else if (e.key === 'Escape' && document.activeElement === qEl) {
+        qEl.value = '';
+        state.q = '';
+        qEl.blur();
+        apply();
+    }
+});
+
+/* ── render ───────────────────────────────────────────────── */
+function apply() {
+    const visible = nodes.filter(el =>
+        (state.tag === '*' || el.dataset.tags.split('|').includes(state.tag)) &&
+        (!state.q || el.dataset.haystack.includes(state.q))
+    );
+
+    visible.sort((a, b) => state.sort === 'az'
+        ? a._talk.name.localeCompare(b._talk.name)
+        : b._talk.year - a._talk.year || a._talk.ord - b._talk.ord
+    );
+
+    const frag = document.createDocumentFragment();
+    visible.forEach((el, i) => {
+        el.style.setProperty('--i', Math.min(i, 24));
+        frag.appendChild(el);
+    });
+
+    // detach everything, flush layout, re-attach — restarts the stagger
+    // so filtered results cascade in instead of popping.
+    container.replaceChildren();
+    void container.offsetWidth;
+    container.appendChild(frag);
+
+    emptyEl.hidden = visible.length > 0;
+    countEl.textContent = visible.length + ' / ' + talks.length;
+}
+
+apply();
+
+/* ── boot sequence ────────────────────────────────────────── */
+(function boot() {
+    const cmdEl   = document.getElementById('cmd');
+    const titleEl = document.getElementById('title');
+    const command = 'ls -la ./presentations';
+    const target  = titleEl.dataset.text;
+
+    if (reduceMotion) { cmdEl.textContent = command; return; }
+
+    // type the shell command
+    let i = 0;
+    (function type() {
+        cmdEl.textContent = command.slice(0, ++i);
+        if (i < command.length) setTimeout(type, 32);
+    })();
+
+    // decode the title out of noise
+    const noise = '!<>-_\\/[]{}=+*^?#01';
+    const DUR = 700;
+    let start = null;
+    let done = false;
+
+    const settle = () => { done = true; titleEl.textContent = target; };
+
+    requestAnimationFrame(function scramble(now) {
+        if (done) return;
+        if (start === null) start = now;
+
+        const p = Math.min((now - start) / DUR, 1);
+        const settled = Math.floor(p * target.length);
+        let out = target.slice(0, settled);
+        for (let j = settled; j < target.length; j++) {
+            out += target[j] === ' ' ? ' ' : noise[(Math.random() * noise.length) | 0];
+        }
+        titleEl.textContent = out;
+
+        if (p < 1) requestAnimationFrame(scramble); else settle();
+    });
+
+    // never leave the heading stuck as noise if rAF timestamps stall
+    setTimeout(settle, DUR + 500);
+})();
+</script>
 </body>
 </html>
